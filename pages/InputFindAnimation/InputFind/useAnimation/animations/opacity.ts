@@ -1,8 +1,12 @@
-import { useAnimatedStyle, withDelay, withSequence, withTiming } from 'react-native-reanimated'
+import { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated'
 
 function animationOpacity() {
+    const opacity = useSharedValue(0.5)
+
+    setTimeout(() => opacity.value = withTiming(1), 900)
+
     return useAnimatedStyle(() => ({
-        opacity: withDelay(200, withSequence(withTiming(0.5), withTiming(1))),
+        opacity: opacity.value,
     }), [])
 }
 

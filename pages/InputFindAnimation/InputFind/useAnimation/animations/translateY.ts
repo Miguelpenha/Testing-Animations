@@ -1,10 +1,16 @@
-import { useAnimatedStyle, withDelay, withSequence, withTiming } from 'react-native-reanimated'
+import { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated'
 
 function animationTranslateY() {
-    return useAnimatedStyle(() => ({
-        transform: [{ translateY: withDelay(150, withSequence(withTiming(100), withTiming(0, {
+    const translateY = useSharedValue(100)
+
+    setTimeout(() => 
+        translateY.value = withTiming(0, {
             duration: 600
-        }))) }]
+        })
+    , 700)
+
+    return useAnimatedStyle(() => ({
+        transform: [{ translateY: translateY.value }]
     }), [])
 }
 

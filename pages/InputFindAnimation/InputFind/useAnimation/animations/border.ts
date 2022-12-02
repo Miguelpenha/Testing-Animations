@@ -1,8 +1,8 @@
 import { SharedValue, useAnimatedStyle } from 'react-native-reanimated'
 
-function animationBorder(inputBorder: SharedValue<number>) {
+function animationBorder(border: SharedValue<number>) {
     return useAnimatedStyle(() => ({
-        borderRadius: inputBorder.value
+        borderRadius: border.value
     }), [])
 }
 

@@ -1,10 +1,16 @@
-import { useAnimatedStyle, withDelay, withSequence, withTiming } from 'react-native-reanimated'
+import { useSharedValue, withTiming, useAnimatedStyle } from 'react-native-reanimated'
 
 function animationWidth() {
-    return useAnimatedStyle(() => ({
-        width: withDelay(500, withSequence(withTiming(60), withTiming(200, {
+    const width = useSharedValue(60)
+    
+    setTimeout(() => 
+        width.value = withTiming(200, {
             duration: 500
-        })))
+        })
+    , 900)
+
+    return useAnimatedStyle(() => ({
+        width: width.value
     }), [])
 }
 
