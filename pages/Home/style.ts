@@ -11,7 +11,7 @@ export const Title = styled.Text`
 `
 
 export const Button = styled.TouchableOpacity`
-    width: 55%;
+    width: 65%;
     elevation: 8;
     margin-top: 10%;
     padding: 3.5% 4%;
