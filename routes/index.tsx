@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import themeRouter from './theme'
 import Home from '../pages/Home'
 import MediumAnimation from '../pages/MediumAnimation'
+import InputFindAnimation from '../pages/InputFindAnimation'
 
 function Routes() {
   const theme = useTheme()
@@ -22,6 +23,7 @@ function Routes() {
         <Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
           <Screen name="Home" component={Home}/>
           <Screen name="MediumAnimation" component={MediumAnimation}/>
+          <Screen name="InputFindAnimation" component={InputFindAnimation}/>
         </Navigator>
       </NavigationContainer>
     </>
