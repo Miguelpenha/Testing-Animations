@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Carousel from 'react-native-snap-carousel'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
@@ -8,15 +8,18 @@ import images from './images'
 import { Dimensions } from 'react-native'
 import { IImage } from './type'
 import ImageAnimated from './ImageAnimated'
-import { FadeInDown, FadeInRight, FadeInLeft } from 'react-native-reanimated'
+import { FadeIn, FadeInDown, FadeInRight, FadeInLeft } from 'react-native-reanimated'
 import Modalize from './Modalize'
 import { IHandles } from 'react-native-modalize/lib/options'
 
 function PlayerAnimated() {
     const navigation = useNavigation()
     const [currentImage, setCurrentImage] = useState<IImage>(images[0])
+    const [isPlaying, setIsPlaying] = useState(true)
     const carouselRef = useRef<Carousel<any>>(null)
     const modalize = useRef<IHandles>(null)
+
+    useEffect(() => setIsPlaying(true), [currentImage])
 
     return (
         <ContainerPd>
@@ -57,6 +60,9 @@ function PlayerAnimated() {
             <Nav>
                 <ContainerIconNav entering={FadeInRight.delay(700).duration(500)} disabled={currentImage.id === images[0].id} onPress={() => carouselRef.current.snapToPrev()}>
                     <IconNav name="fast-rewind" size={50} disabled={currentImage.id === images[0].id}/>
+                </ContainerIconNav>
+                <ContainerIconNav entering={FadeIn.delay(700).duration(500)} onPress={() => setIsPlaying(!isPlaying)}>
+                    <IconNav name={isPlaying ? 'pause' : 'play-arrow'} size={50}/>
                 </ContainerIconNav>
                 <ContainerIconNav entering={FadeInLeft.delay(700).duration(500)} disabled={currentImage.id === images[images.length-1].id} onPress={() => carouselRef.current.snapToNext()}>
                     <IconNav name="fast-forward" size={50} disabled={currentImage.id === images[images.length-1].id}/>
