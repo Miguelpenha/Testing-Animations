@@ -7,7 +7,7 @@ function animationTranslateY() {
         translateY.value = withTiming(0, {
             duration: 600
         })
-    , 700)
+    , 400)
 
     return useAnimatedStyle(() => ({
         transform: [{ translateY: translateY.value }]
