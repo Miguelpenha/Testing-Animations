@@ -6,9 +6,10 @@ interface Iprops {
     id: string
     image: string
     itemSelect: string
+    onPress: () => void
 }
 
-const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image }) => {
+const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image, onPress }) => {
     const pressedContainerImageScale = useSharedValue(0)
     const pressedContainerImageOpacity = useSharedValue(0)
 
@@ -23,6 +24,7 @@ const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image }) => {
 
     return (
         <Container
+            onPress={onPress}
             select={itemSelect === id}
             onPressIn={() => {
                 pressedContainerImageScale.value = withTiming(0.9)
