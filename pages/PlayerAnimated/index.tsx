@@ -32,6 +32,7 @@ function PlayerAnimated() {
                     data={images}
                     ref={carouselRef}
                     swipeThreshold={18}
+                    enableMomentum={true}
                     sliderWidth={Dimensions.get('window').width}
                     onSnapToItem={slide => setItemSelect(images[slide].id)}
                     itemWidth={Dimensions.get('window').width-Dimensions.get('window').width/4}
