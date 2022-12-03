@@ -29,9 +29,10 @@ function PlayerAnimated() {
             <ContainerImages>
                 <Carousel
                     data={images}
-                    itemWidth={310}
-                    onSnapToItem={slide => setItemSelect(images[slide].id)}
+                    activeSlideOffset={15}
                     sliderWidth={Dimensions.get('window').width}
+                    onSnapToItem={slide => setItemSelect(images[slide].id)}
+                    itemWidth={Dimensions.get('window').width-Dimensions.get('window').width/4}
                     renderItem={({ item }) => <ImageAnimated itemSelect={itemSelect} id={item.id} image={item.url}/>}
                 />
             </ContainerImages>

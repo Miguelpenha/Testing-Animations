@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useAnimatedStyle, useSharedValue, withSequence, withSpring, withTiming } from 'react-native-reanimated'
+import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { Container, Image } from './style'
 
 interface Iprops {
@@ -12,10 +12,7 @@ const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image }) => {
     const pressedContainerImageScale = useSharedValue(0)
     const pressedContainerImageOpacity = useSharedValue(0)
 
-    pressedContainerImageScale.value = withSpring(1, {
-        velocity: 0.5,
-        damping: 12
-    })
+    pressedContainerImageScale.value = withTiming(1)
 
     pressedContainerImageOpacity.value = withTiming(1)
 
