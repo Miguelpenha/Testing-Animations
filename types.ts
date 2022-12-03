@@ -10,6 +10,7 @@ export interface ITheme {
 
 export type INavigation = {
   Home: undefined
+  PlayerAnimated: undefined
   MediumAnimation: undefined
   InputFindAnimation: undefined
 }

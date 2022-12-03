@@ -14,6 +14,9 @@ function Home() {
       <Button onPress={() => navigation.navigate('InputFindAnimation')}>
         <TextButton>Animação de campo de pesquisa</TextButton>
       </Button>
+      <Button onPress={() => navigation.navigate('PlayerAnimated')}>
+        <TextButton>Player animado</TextButton>
+      </Button>
     </ContainerPd>
   )
 }
