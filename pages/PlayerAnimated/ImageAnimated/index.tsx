@@ -1,31 +1,29 @@
+import { IImage } from '../type'
 import { FC } from 'react'
-import { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
+import { useAnimatedStyle, useSharedValue, withTiming, ZoomIn } from 'react-native-reanimated'
 import { Container, Image } from './style'
 
 interface Iprops {
-    id: string
-    image: string
-    itemSelect: string
+    image: IImage
     onPress: () => void
+    currentImage: string
 }
 
-const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image, onPress }) => {
-    const pressedContainerImageScale = useSharedValue(0)
-    const pressedContainerImageOpacity = useSharedValue(0)
-
-    pressedContainerImageScale.value = withTiming(1)
-
-    pressedContainerImageOpacity.value = withTiming(1)
+const ImageAnimated: FC<Iprops> = ({ currentImage, image, onPress }) => {
+    const pressedContainerImageScale = useSharedValue(1)
+    const pressedContainerImageOpacity = useSharedValue(1)
 
     const animationContainerImage = useAnimatedStyle(() => ({
         opacity: pressedContainerImageOpacity.value,
         transform: [{ scale: pressedContainerImageScale.value }]
     }), [])
-
+    
     return (
         <Container
             onPress={onPress}
-            select={itemSelect === id}
+            entering={ZoomIn.delay(200)}
+            style={animationContainerImage}
+            current={currentImage === image.id}
             onPressIn={() => {
                 pressedContainerImageScale.value = withTiming(0.9)
                 pressedContainerImageOpacity.value = withTiming(0.8)
@@ -34,9 +32,8 @@ const ImageAnimated: FC<Iprops> = ({ itemSelect, id, image, onPress }) => {
                 pressedContainerImageScale.value = withTiming(1)
                 pressedContainerImageOpacity.value = withTiming(1)
             }}
-            style={animationContainerImage}
         >
-            <Image source={{ uri: image }}/>
+            <Image source={{ uri: image.url }}/>
         </Container>
     )
 }

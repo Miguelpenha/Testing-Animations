@@ -1,46 +1,40 @@
 import { useNavigation } from '@react-navigation/native'
+import { useRef, useState } from 'react'
+import Carousel from 'react-native-snap-carousel'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
-import { ContainerImages } from './style'
-import ImageAnimated from './ImageAnimated'
-import Carousel from 'react-native-snap-carousel'
+import { Images, Music, Artist, Nav, ContainerIconNav, IconNav } from './style'
+import images from './images'
 import { Dimensions } from 'react-native'
-import uuid from 'react-native-uuid'
-import { useState, useRef } from 'react'
-
-const imageURL = 'https://e-cdns-images.dzcdn.net/images/cover/b69d3bcbd130ad4cc9259de543889e30/380x380-000000-80-0-0.jpg'
-
-const images = []
-
-for (let count = 0;count < 5;count++) {
-    images.push({
-        id: uuid.v4(),
-        url: imageURL
-    })
-}
+import { IImage } from './type'
+import ImageAnimated from './ImageAnimated'
+import { FadeInDown, FadeInRight, FadeInLeft } from 'react-native-reanimated'
+import Modalize from './Modalize'
+import { IHandles } from 'react-native-modalize/lib/options'
 
 function PlayerAnimated() {
     const navigation = useNavigation()
+    const [currentImage, setCurrentImage] = useState<IImage>(images[0])
     const carouselRef = useRef<Carousel<any>>(null)
-    const [itemSelect, setItemSelect] = useState(images[0].id)
+    const modalize = useRef<IHandles>(null)
 
     return (
         <ContainerPd>
             <HeaderBack onClick={() => navigation.goBack()} title="Player animado"/>
-            <ContainerImages>
+            <Images>
                 <Carousel
                     data={images}
                     ref={carouselRef}
-                    swipeThreshold={18}
+                    swipeThreshold={16}
                     enableMomentum={true}
+                    inactiveSlideOpacity={1}
                     sliderWidth={Dimensions.get('window').width}
-                    onSnapToItem={slide => setItemSelect(images[slide].id)}
+                    onBeforeSnapToItem={index => setCurrentImage(images[index])}
                     itemWidth={Dimensions.get('window').width-Dimensions.get('window').width/4}
-                    renderItem={({ item, index }) => (
+                    renderItem={({ item: image, index }: { item: IImage, index: number }) => (
                         <ImageAnimated
-                            id={item.id}
-                            image={item.url}
-                            itemSelect={itemSelect}
+                            image={image}
+                            currentImage={currentImage.id}
                             onPress={() => {
                                 if (carouselRef.current.currentIndex != index) {
                                     if (carouselRef.current.currentIndex > index) {
@@ -48,12 +42,27 @@ function PlayerAnimated() {
                                     } else {
                                         carouselRef.current.snapToNext()
                                     }
+                                } else {
+                                    setTimeout(() => {
+                                        modalize.current.open()
+                                    }, 100)
                                 }
                             }}
                         />
                     )}
                 />
-            </ContainerImages>
+            </Images>
+            <Music entering={FadeInDown.duration(800)}>{currentImage.music}</Music>
+            <Artist entering={FadeInDown.duration(1000)}>{currentImage.artist}</Artist>
+            <Nav>
+                <ContainerIconNav entering={FadeInRight.delay(700).duration(500)} disabled={currentImage.id === images[0].id} onPress={() => carouselRef.current.snapToPrev()}>
+                    <IconNav name="fast-rewind" size={50} disabled={currentImage.id === images[0].id}/>
+                </ContainerIconNav>
+                <ContainerIconNav entering={FadeInLeft.delay(700).duration(500)} disabled={currentImage.id === images[images.length-1].id} onPress={() => carouselRef.current.snapToNext()}>
+                    <IconNav name="fast-forward" size={50} disabled={currentImage.id === images[images.length-1].id}/>
+                </ContainerIconNav>
+            </Nav>
+            <Modalize modalize={modalize}/>
         </ContainerPd>
     )
 }
