@@ -31,7 +31,7 @@ function PlayerAnimated() {
                 <Carousel
                     data={images}
                     ref={carouselRef}
-                    activeSlideOffset={10}
+                    activeSlideOffset={25}
                     sliderWidth={Dimensions.get('window').width}
                     onSnapToItem={slide => setItemSelect(images[slide].id)}
                     itemWidth={Dimensions.get('window').width-Dimensions.get('window').width/4}
