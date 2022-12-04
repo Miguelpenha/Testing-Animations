@@ -1,22 +1,19 @@
-import styled, { css } from 'styled-components/native'
+import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
-import { Text as TextRN } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
-export const Container = styled(Animated.createAnimatedComponent(TextRN))`
+export const Container = styled(Animated.View)`
     margin-left: 5%;
-    font-weight: bold;
     padding-bottom: 4%;
-    font-size: ${RFPercentage(3)}px;
-    color: ${props => props.theme.secondaryColor};
+    flex-direction: row;
 `
 
-interface IText {
-    value?: boolean
+interface Iprops {
+    label?: boolean
 }
 
-export const Text = styled.Text<IText>`
-    ${props => props.value && css`
-        color: ${props => props.theme.secondary};
-    `}
+export const Text = styled.Text<Iprops>`
+    font-weight: bold;
+    font-size: ${RFPercentage(3)}px;
+    color: ${props => props.label ? props.theme.secondaryColor : props.theme.secondary};
 `
