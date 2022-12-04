@@ -11,18 +11,41 @@ import ImageAnimated from './ImageAnimated'
 import { FadeIn, FadeInDown, FadeInRight, FadeInLeft } from 'react-native-reanimated'
 import Modalize from './Modalize'
 import { IHandles } from 'react-native-modalize/lib/options'
+import Lyrics from './Lyrics'
 
 function PlayerAnimated() {
     const navigation = useNavigation()
     const [currentImage, setCurrentImage] = useState<IImage>(images[0])
     const [isPlaying, setIsPlaying] = useState(true)
+    const [indexPhraseOfLyrics, setIndexPhraseOfLyrics] = useState(0)
     const carouselRef = useRef<Carousel<any>>(null)
     const modalize = useRef<IHandles>(null)
 
-    useEffect(() => setIsPlaying(true), [currentImage])
+    useEffect(() => {
+        setIsPlaying(true)
+        setIndexPhraseOfLyrics(0)
+    }, [currentImage])
+
+    useEffect(() => {
+        if (currentImage.lyrics && isPlaying) {
+            const interval = setInterval(() => {
+                setIndexPhraseOfLyrics(indexPhraseOfLyrics => {
+                    if (indexPhraseOfLyrics === currentImage.lyrics.split('\n').length) {
+                        carouselRef.current.snapToNext()
+                        
+                        return 0
+                    } else {
+                        return indexPhraseOfLyrics+1
+                    }
+                })
+            }, 2000)
+            
+            return () => clearInterval(interval)
+        }
+    }, [currentImage, isPlaying])
 
     return (
-        <ContainerPd>
+        <ContainerPd scroll>
             <HeaderBack onClick={() => navigation.goBack()} title="Player animado"/>
             <Images>
                 <Carousel
@@ -68,6 +91,13 @@ function PlayerAnimated() {
                     <IconNav name="fast-forward" size={50} disabled={currentImage.id === images[images.length-1].id}/>
                 </ContainerIconNav>
             </Nav>
+            {currentImage.lyrics && (
+                <Lyrics
+                    currentImage={currentImage}
+                    indexPhraseOfLyrics={indexPhraseOfLyrics}
+                    setIndexPhraseOfLyrics={setIndexPhraseOfLyrics}
+                />
+            )}
             <Modalize image={currentImage} modalize={modalize}/>
         </ContainerPd>
     )

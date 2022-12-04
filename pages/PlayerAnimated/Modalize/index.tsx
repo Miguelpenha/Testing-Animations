@@ -3,6 +3,7 @@ import { MutableRefObject, FC } from 'react'
 import { IHandles } from 'react-native-modalize/lib/options'
 import { useTheme } from 'styled-components'
 import { Modalize as ModalizeRaw } from 'react-native-modalize'
+import { Dimensions } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 import { Title } from './style'
 import { FadeInDown } from 'react-native-reanimated'
@@ -17,12 +18,11 @@ interface Iprops {
 const Modalize: FC<Iprops> = ({ image, modalize }) => {
     const theme = useTheme()
     const datas = organizeDatas(image)
-
+    
     return (
         <ModalizeRaw
             ref={modalize}
-            snapPoint={RFPercentage(64)}
-            modalHeight={RFPercentage(90 || 0)}
+            modalHeight={image.lyrics ? Dimensions.get('window').height*6.4 : Dimensions.get('window').height-500}
             modalStyle={{ backgroundColor: theme.backgroundColor }}
             handleStyle={{ width: RFPercentage(10), backgroundColor: theme.primary }}
         >
