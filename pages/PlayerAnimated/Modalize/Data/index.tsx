@@ -10,7 +10,7 @@ interface Iprops {
 
 const Data: FC<Iprops> = ({ index, data }) => {
     return (
-        <Container entering={FadeInDown.delay(400+(index*150)).duration(800)}>
+        <Container entering={FadeInDown.delay(400+(index*100)).duration(800)}>
             <Text>{data.label} </Text>
             <Text value>{data.value}</Text>
         </Container>
