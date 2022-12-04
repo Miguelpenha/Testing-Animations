@@ -68,7 +68,7 @@ function PlayerAnimated() {
                     <IconNav name="fast-forward" size={50} disabled={currentImage.id === images[images.length-1].id}/>
                 </ContainerIconNav>
             </Nav>
-            <Modalize modalize={modalize}/>
+            <Modalize image={currentImage} modalize={modalize}/>
         </ContainerPd>
     )
 }

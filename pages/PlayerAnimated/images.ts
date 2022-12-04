@@ -9,8 +9,11 @@ for (let count = 0;count < 5;count++) {
     images.push({
         url: urlImage,
         artist: 'Drake',
-        music: `God's Plan ${count+1}`,
-        id: uuid.v4().toString()
+        duration: '3:18',
+        album: 'Scorpion',
+        language: 'English',
+        id: uuid.v4().toString(),
+        music: `God's Plan ${count+1}`
     })
 }
 

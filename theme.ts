@@ -2,7 +2,7 @@ import { ITheme } from './types'
 
 export const theme: ITheme = {
     name: 'dark',
-    color: '#F2F2F2',
+    color: '#fa6565',
     primary: '#FF0022',
     secondary: '#8C030E',
     secondaryColor: '#BF0413',
