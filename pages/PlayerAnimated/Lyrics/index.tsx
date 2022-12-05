@@ -1,26 +1,29 @@
-import { IImage } from '../type'
-import { Dispatch, SetStateAction, FC } from 'react'
-import { Container } from './style'
-import { FadeInDown } from 'react-native-reanimated'
-import Phrase from './Phrase'
+import { SharedValue, useAnimatedStyle, FadeInDown } from 'react-native-reanimated'
+import { FC } from 'react'
+import { Container, Phrase } from './style'
+import * as Clipboard from 'expo-clipboard'
+import SimpleToast from 'react-native-simple-toast'
 
 interface Iprops {
-    currentImage: IImage
-    indexPhraseOfLyrics: number
-    setIndexPhraseOfLyrics: Dispatch<SetStateAction<number>>
+    phrase: string
+    onPress: () => void
+    opacity: SharedValue<number>
+    translateY: SharedValue<number>
 }
 
-const Lyrics: FC<Iprops> = ({ currentImage, indexPhraseOfLyrics, setIndexPhraseOfLyrics }) => {
+const Lyrics: FC<Iprops> = ({ opacity, translateY, phrase, onPress }) => {
+    const animationPhrase = useAnimatedStyle(() => ({
+        opacity: opacity.value,
+        transform: [{ translateY: translateY.value }]
+    }))
+
     return (
-        <Container entering={FadeInDown.delay(800).duration(800)} activeOpacity={0.8}>
-            {currentImage.lyrics.split('\n').map((phrase, index) => phrase && (
-                <Phrase
-                    index={index}
-                    phrase={phrase}
-                    indexPhraseOfLyrics={indexPhraseOfLyrics}
-                    onPress={() => setIndexPhraseOfLyrics(index)}
-                />
-            ))}
+        <Container onPress={onPress} entering={FadeInDown.delay(800).duration(800)} activeOpacity={0.8} onLongPress={() => {
+            Clipboard.setString(phrase)
+
+            SimpleToast.show('Frase copiada!', SimpleToast.SHORT)
+        }}>
+            <Phrase style={animationPhrase}>{phrase}</Phrase>
         </Container>
     )
 }

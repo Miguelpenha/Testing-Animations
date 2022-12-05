@@ -8,8 +8,9 @@ import images from './images'
 import { Dimensions } from 'react-native'
 import { IImage } from './type'
 import ImageAnimated from './ImageAnimated'
-import { FadeIn, FadeInDown, FadeInRight, FadeInLeft } from 'react-native-reanimated'
-import Modalize from './Modalize'
+import { useSharedValue, withTiming, withSequence, FadeIn, FadeInDown, FadeInRight, FadeInLeft, withDelay } from 'react-native-reanimated'
+import ModalizeAbout from './ModalizeAbout'
+import ModalizeLyrics from './ModalizeLyrics'
 import { IHandles } from 'react-native-modalize/lib/options'
 import Lyrics from './Lyrics'
 
@@ -17,19 +18,53 @@ function PlayerAnimated() {
     const navigation = useNavigation()
     const [currentImage, setCurrentImage] = useState<IImage>(images[0])
     const [isPlaying, setIsPlaying] = useState(true)
+    const opacityPhraseOfLyrics = useSharedValue(1)
+    const translateYPhraseOfLyrics = useSharedValue(0)
     const [indexPhraseOfLyrics, setIndexPhraseOfLyrics] = useState(0)
     const carouselRef = useRef<Carousel<any>>(null)
-    const modalize = useRef<IHandles>(null)
+    const modalizeAbout = useRef<IHandles>(null)
+    const modalizeLyrics = useRef<IHandles>(null)
 
     useEffect(() => {
         setIsPlaying(true)
+
         setIndexPhraseOfLyrics(0)
+
+        opacityPhraseOfLyrics.value = 0.5
+
+        opacityPhraseOfLyrics.value = withTiming(1, {
+            duration: 1000
+        })
+
+        translateYPhraseOfLyrics.value = 130
+
+        translateYPhraseOfLyrics.value = withTiming(0, {
+            duration: 800
+        })
     }, [currentImage])
 
     useEffect(() => {
         if (currentImage.lyrics && isPlaying) {
             const interval = setInterval(() => {
-                setIndexPhraseOfLyrics(indexPhraseOfLyrics => {
+                opacityPhraseOfLyrics.value = withTiming(0.5, {
+                    duration: 500
+                })
+
+                translateYPhraseOfLyrics.value = withDelay(200, withTiming(-130, {
+                    duration: 1000
+                }))
+
+                setTimeout(() => setIndexPhraseOfLyrics(indexPhraseOfLyrics => {
+                    translateYPhraseOfLyrics.value = 130
+                    
+                    opacityPhraseOfLyrics.value = withTiming(1, {
+                        duration: 1000
+                    })
+
+                    translateYPhraseOfLyrics.value = withTiming(0, {
+                        duration: 500
+                    })
+
                     if (indexPhraseOfLyrics === currentImage.lyrics.split('\n').length) {
                         carouselRef.current.snapToNext()
                         
@@ -37,15 +72,15 @@ function PlayerAnimated() {
                     } else {
                         return indexPhraseOfLyrics+1
                     }
-                })
-            }, 2000)
+                }), 400)
+            }, 3000)
             
             return () => clearInterval(interval)
         }
     }, [currentImage, isPlaying])
 
     return (
-        <ContainerPd scroll>
+        <ContainerPd>
             <HeaderBack onClick={() => navigation.goBack()} title="Player animado"/>
             <Images>
                 <Carousel
@@ -70,7 +105,7 @@ function PlayerAnimated() {
                                     }
                                 } else {
                                     setTimeout(() => {
-                                        modalize.current.open()
+                                        modalizeAbout.current.open()
                                     }, 100)
                                 }
                             }}
@@ -92,13 +127,15 @@ function PlayerAnimated() {
                 </ContainerIconNav>
             </Nav>
             {currentImage.lyrics && (
-                <Lyrics
-                    currentImage={currentImage}
-                    indexPhraseOfLyrics={indexPhraseOfLyrics}
-                    setIndexPhraseOfLyrics={setIndexPhraseOfLyrics}
-                />
+                <Lyrics onPress={() => modalizeLyrics.current.open()} translateY={translateYPhraseOfLyrics} opacity={opacityPhraseOfLyrics} phrase={currentImage.lyrics.split('\n')[indexPhraseOfLyrics]}/>
             )}
-            <Modalize image={currentImage} modalize={modalize}/>
+            <ModalizeAbout image={currentImage} modalize={modalizeAbout}/>
+            <ModalizeLyrics
+                modalize={modalizeLyrics}
+                currentImage={currentImage}
+                indexPhraseOfLyrics={indexPhraseOfLyrics}
+                setIndexPhraseOfLyrics={setIndexPhraseOfLyrics}
+            />
         </ContainerPd>
     )
 }
