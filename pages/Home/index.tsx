@@ -17,6 +17,9 @@ function Home() {
       <Button onPress={() => navigation.navigate('PlayerAnimated')}>
         <TextButton>Player animado</TextButton>
       </Button>
+      <Button onPress={() => navigation.navigate('NumberAnimated')}>
+        <TextButton>Número animado</TextButton>
+      </Button>
     </ContainerPd>
   )
 }
