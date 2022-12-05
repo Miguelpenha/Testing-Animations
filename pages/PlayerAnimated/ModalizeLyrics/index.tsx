@@ -6,7 +6,7 @@ import { useTheme } from 'styled-components'
 import { Modalize as ModalizeRaw } from 'react-native-modalize'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 import { Title, Container } from './style'
-import { FadeInUp } from 'react-native-reanimated'
+import { FadeInDown } from 'react-native-reanimated'
 import Phrase from './Phrase'
 
 interface Iprops {
@@ -28,7 +28,7 @@ const Modalize: FC<Iprops> = ({ modalize, currentImage, indexPhraseOfLyrics, set
             contentRef={lyricsRef}
             modalStyle={{ backgroundColor: theme.backgroundColor }}
             handleStyle={{ width: RFPercentage(10), backgroundColor: theme.primary }}
-            HeaderComponent={<Title entering={FadeInUp.delay(200).duration(800)}>Letra</Title>}
+            HeaderComponent={<Title entering={FadeInDown.delay(200).duration(800)}>Letra</Title>}
         >
             <Container>
                 {currentImage.lyrics.split('\n').map((phrase, index) => phrase && (
