@@ -133,6 +133,7 @@ function PlayerAnimated() {
             <ModalizeLyrics
                 modalize={modalizeLyrics}
                 currentImage={currentImage}
+                setIsPlaying={setIsPlaying}
                 indexPhraseOfLyrics={indexPhraseOfLyrics}
                 setIndexPhraseOfLyrics={setIndexPhraseOfLyrics}
             />

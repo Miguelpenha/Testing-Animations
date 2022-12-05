@@ -13,10 +13,11 @@ interface Iprops {
     currentImage: IImage
     indexPhraseOfLyrics: number
     modalize: MutableRefObject<IHandles>
+    setIsPlaying: Dispatch<SetStateAction<boolean>>
     setIndexPhraseOfLyrics: Dispatch<SetStateAction<number>>
 }
 
-const Modalize: FC<Iprops> = ({ modalize, currentImage, indexPhraseOfLyrics, setIndexPhraseOfLyrics }) => {
+const Modalize: FC<Iprops> = ({ modalize, currentImage, indexPhraseOfLyrics, setIndexPhraseOfLyrics, setIsPlaying }) => {
     const theme = useTheme()
     const lyricsRef = useRef<ScrollView>(null)
     
@@ -37,8 +38,11 @@ const Modalize: FC<Iprops> = ({ modalize, currentImage, indexPhraseOfLyrics, set
                         index={index}
                         phrase={phrase}
                         indexPhraseOfLyrics={indexPhraseOfLyrics}
-                        onPress={() => setIndexPhraseOfLyrics(index)}
                         onScroll={(x, y) => lyricsRef.current?.scrollTo({ x, y: y-30, animated: true })}
+                        onPress={() => {
+                            setIndexPhraseOfLyrics(index)
+                            setIsPlaying(true)
+                        }}
                     />
                 ))}
             </Container>
