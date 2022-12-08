@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import themeRouter from './theme'
 import Home from '../pages/Home'
+import WordAnimation from '../pages/WordAnimation'
 import PlayerAnimated from '../pages/PlayerAnimated'
 import NumberAnimated from '../pages/NumberAnimated'
 import MediumAnimation from '../pages/MediumAnimation'
@@ -24,6 +25,7 @@ function Routes() {
       <NavigationContainer theme={themeRouter}>
         <Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
           <Screen name="Home" component={Home}/>
+          <Screen name="WordAnimation" component={WordAnimation}/>
           <Screen name="PlayerAnimated" component={PlayerAnimated}/>
           <Screen name="NumberAnimated" component={NumberAnimated}/>
           <Screen name="MediumAnimation" component={MediumAnimation}/>

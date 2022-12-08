@@ -20,6 +20,9 @@ function Home() {
       <Button onPress={() => navigation.navigate('NumberAnimated')}>
         <TextButton>Número animado</TextButton>
       </Button>
+      <Button onPress={() => navigation.navigate('WordAnimation')}>
+        <TextButton>Animação de palavras</TextButton>
+      </Button>
     </ContainerPd>
   )
 }
