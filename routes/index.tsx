@@ -10,6 +10,7 @@ import PlayerAnimated from '../pages/PlayerAnimated'
 import NumberAnimated from '../pages/NumberAnimated'
 import MediumAnimation from '../pages/MediumAnimation'
 import InputFindAnimation from '../pages/InputFindAnimation'
+import AnimatedHomePageOfVideos from '../pages/AnimatedHomePageOfVideos'
 
 function Routes() {
   const theme = useTheme()
@@ -30,6 +31,7 @@ function Routes() {
           <Screen name="NumberAnimated" component={NumberAnimated}/>
           <Screen name="MediumAnimation" component={MediumAnimation}/>
           <Screen name="InputFindAnimation" component={InputFindAnimation}/>
+          <Screen name="AnimatedHomePageOfVideos" component={AnimatedHomePageOfVideos}/>
         </Navigator>
       </NavigationContainer>
     </>

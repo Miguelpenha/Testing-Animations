@@ -5,7 +5,7 @@ export const Title = styled.Text`
     margin-top: 22%;
     font-weight: bold;
     align-self: center;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     font-size: ${RFPercentage(4)}px;
     color: ${props => props.theme.primary};
 `

@@ -15,4 +15,5 @@ export type INavigation = {
   NumberAnimated: undefined
   MediumAnimation: undefined
   InputFindAnimation: undefined
+  AnimatedHomePageOfVideos: undefined
 }
