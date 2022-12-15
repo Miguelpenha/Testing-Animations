@@ -10,7 +10,7 @@ for (let count = 1;count <= 15;count++) {
         thumbnail,
         views: randomValue(),
         likes: randomValue(),
-        title: `Vídeo ${count}`,
+        title: `Vídeo teste testando ${count}`,
         id: uuid.v4().toString()
     })
 }

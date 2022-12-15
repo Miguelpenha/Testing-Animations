@@ -2,6 +2,7 @@ import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
+import { MaterialIcons } from '@expo/vector-icons'
 import AnimatedNumber from 'react-native-animated-number'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
@@ -25,8 +26,23 @@ export const Title = styled.Text`
     color: ${props => props.theme.color};
 `
 
-export const Views = styled(AnimatedNumber)`
-    margin-top: 2%;
+export const Numbers = styled.View`
+    margin-top: 4%;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+export const ContainerNumber = styled.View`
+    align-items: center;
+    flex-direction: row;
+`
+
+export const IconNumber = styled(MaterialIcons)`
+    margin-right: 5%;
+    color: ${props => props.theme.primary};
+`
+
+export const Number = styled(AnimatedNumber)`
     font-size: ${RFPercentage(2.2)}px;
     color: ${props => props.theme.primary};
 `

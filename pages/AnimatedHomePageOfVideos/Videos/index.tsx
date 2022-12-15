@@ -1,16 +1,25 @@
+import { IVideo } from './type'
+import { FC } from 'react'
 import { Container } from './style'
 import videos from './videos'
-import { IVideo } from './type'
 import { ListRenderItemInfo } from 'react-native'
 import Video from './Video'
 
-function Videos () {
+interface Iprops {
+    onSelectVideo: (video: IVideo) => void
+}
+
+const Videos: FC<Iprops> = ({ onSelectVideo }) => {
     return (
         <Container
             data={videos}
             keyExtractor={(item: IVideo) => item.id}
             renderItem={({ item: video, index }: ListRenderItemInfo<IVideo>) => (
-                <Video video={video} index={index}/>
+                <Video
+                    video={video}
+                    index={index}
+                    onPress={() => onSelectVideo(video)}
+                />
             )}
         />
     )
