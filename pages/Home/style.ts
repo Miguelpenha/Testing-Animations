@@ -2,10 +2,9 @@ import styled from 'styled-components/native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Title = styled.Text`
-    margin-top: 22%;
+    margin-top: 16%;
     font-weight: bold;
     align-self: center;
-    margin-bottom: 5%;
     font-size: ${RFPercentage(4)}px;
     color: ${props => props.theme.primary};
 `

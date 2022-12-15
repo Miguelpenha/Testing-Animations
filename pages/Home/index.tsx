@@ -6,7 +6,7 @@ function Home() {
   const navigation = useNavigation()
 
   return (
-    <ContainerPd scroll>
+    <ContainerPd>
       <Title>Testando Animações</Title>
       <Button onPress={() => navigation.navigate('MediumAnimation')}>
         <TextButton>Animação Medium</TextButton>
