@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Testing Animations",
-    "slug": "Secrets-Animations",
+    "slug": "testing-animations",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/5c7f6711-04fb-4315-a9c7-5e61af6087c9"
+      "url": "https://u.expo.dev/c5c21176-a23a-424d-8034-61f53502a9f3"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -33,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "5c7f6711-04fb-4315-a9c7-5e61af6087c9"
+        "projectId": "c5c21176-a23a-424d-8034-61f53502a9f3"
       }
     },
     "runtimeVersion": {
