@@ -1,5 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import updateApp from './utils/updateApp'
 import { green } from './utils/colorsLogs'
 import { ThemeProvider } from 'styled-components'
@@ -14,7 +14,7 @@ function App() {
   
   useEffect(() => {
     async function prepare() {
-      // await updateApp()
+      await updateApp()
 
       setReady(true)
       
