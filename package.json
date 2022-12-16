@@ -11,8 +11,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build:android:production": "expo build:android --release-channel production -t apk",
-    "build:android:development": "expo build:android --release-channel development -t apk"
+    "build:android:production": "eas build --platform android --profile production",
+    "build:android:beta": "eas build --platform android --profile beta"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
