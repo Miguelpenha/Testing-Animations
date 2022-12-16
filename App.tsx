@@ -14,7 +14,7 @@ function App() {
   
   useEffect(() => {
     async function prepare() {
-      await updateApp()
+      // await updateApp()
 
       setReady(true)
       
