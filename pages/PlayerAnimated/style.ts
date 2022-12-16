@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 export const Images = styled.View`
-    margin-top: 18%;
+    margin-top: 12%;
     margin-bottom: 8%;
 `
 
