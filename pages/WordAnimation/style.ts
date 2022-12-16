@@ -3,7 +3,7 @@ import Animated from 'react-native-reanimated'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
-    margin-top: 45%;
+    margin-top: 35%;
     align-items: center;
 `
 

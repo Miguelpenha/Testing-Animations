@@ -1,41 +1,19 @@
-import React, { FC, memo } from 'react'
-import { ViewStyle, TextStyle } from 'react-native'
-import { Container, Row1, ButtonBack, ContainerHeader, Title } from './style'
+import { FC, memo } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { Container, ButtonBack, Title } from './style'
+import limitText from '../../utils/limitText'
 
 interface Iprops {
-    title?: string
-    style?: ViewStyle
-    onClick: () => void
-    buttonBack?: boolean
-    styleTitle?: TextStyle
-    iconSizeButtonBack?: number
-    styleButtonBack?: ViewStyle
-    styleButtonBackIcon?: TextStyle
-    styleContainerHeader?: ViewStyle
+    children?: string
 }
 
-const HeaderBack: FC<Iprops> = ({ style, onClick, buttonBack=true, styleButtonBack, iconSizeButtonBack, styleButtonBackIcon, styleContainerHeader, title, styleTitle }) => {
-    if (!styleButtonBack) {
-        styleButtonBack = {
-            alignSelf: 'center'
-        }
-    }
+const HeaderBack: FC<Iprops> = ({ children }) => {
+    const navigation = useNavigation()
 
     return (
-        <Container style={style}>
-            <Row1>
-                {buttonBack && (
-                    <ButtonBack
-                        onClick={onClick}
-                        style={styleButtonBack}
-                        iconSize={iconSizeButtonBack}
-                        styleIcon={styleButtonBackIcon}
-                    />
-                )}
-                <ContainerHeader style={styleContainerHeader}>
-                    <Title style={styleTitle}>{title && title}</Title>
-                </ContainerHeader>
-            </Row1>
+        <Container>
+            <ButtonBack onClick={navigation.goBack}/>
+            <Title>{limitText(children, 25)}</Title>
         </Container>
     )
 }

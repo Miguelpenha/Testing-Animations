@@ -7,7 +7,7 @@ export const Input = styled(Animated.createAnimatedComponent(TextInput))`
     width: 45%;
     padding: 4%;
     elevation: 6;
-    margin-top: 40%;
+    margin-top: 30%;
     align-self: center;
     font-size: ${RFPercentage(2.5)}px;
     color: ${props => props.theme.color};

@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { IPadding } from './type'
 import handleCircle from './handleCircle'
@@ -8,7 +7,6 @@ import { Circles } from './style'
 import Circle from './Circle'
 
 function MediumAnimation() {
-  const navigation = useNavigation()
   const [padding1, setPadding1] = useState<IPadding>('big')
   const [padding2, setPadding2] = useState<IPadding>('medium')
   const [padding3, setPadding3] = useState<IPadding>('small')
@@ -19,7 +17,7 @@ function MediumAnimation() {
 
   return (
     <ContainerPd>
-      <HeaderBack title="Animação do Medium" onClick={() => navigation.goBack()}/>
+      <HeaderBack>Animação do Medium</HeaderBack>
       <Circles>
         <Circle index={1} onPress={onPress} padding={padding1}/>
         <Circle index={2} onPress={onPress} padding={padding2}/>

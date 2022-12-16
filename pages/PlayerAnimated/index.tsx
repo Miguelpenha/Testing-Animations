@@ -81,7 +81,7 @@ function PlayerAnimated() {
 
     return (
         <ContainerPd>
-            <HeaderBack onClick={() => navigation.goBack()} title="Player animado"/>
+            <HeaderBack>Player animado</HeaderBack>
             <Images>
                 <Carousel
                     data={images}

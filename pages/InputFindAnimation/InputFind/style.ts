@@ -6,7 +6,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize'
 export const Input = styled(Animated.createAnimatedComponent(TextInput))`
     padding: 4%;
     elevation: 6;
-    margin-top: 40%;
+    margin-top: 20%;
     align-self: center;
     font-size: ${RFPercentage(2.5)}px;
     color: ${props => props.theme.color};

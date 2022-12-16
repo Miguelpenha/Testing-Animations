@@ -11,7 +11,7 @@ function WordAnimation() {
     
     return (
         <ContainerPd>
-            <HeaderBack title="Animação de palavras" onClick={() => navigation.goBack()}/>
+            <HeaderBack>Animação de palavras</HeaderBack>
             <Container>
                 <ContainerWord entering={FadeInDown}>
                     <Label>A palavra é </Label>
