@@ -6,12 +6,14 @@ import uuid from 'react-native-uuid'
 const videos: IVideo[] = []
 
 for (let count = 1;count <= 15;count++) {
+    const views = randomValue()
+
     videos.push({
         thumbnail,
-        views: randomValue(),
-        likes: randomValue(),
-        title: `Vídeo teste testando ${count}`,
-        id: uuid.v4().toString()
+        views: views,
+        id: uuid.v4().toString(),
+        likes: randomValue(views),
+        title: `Vídeo teste testando ${count}`
     })
 }
 

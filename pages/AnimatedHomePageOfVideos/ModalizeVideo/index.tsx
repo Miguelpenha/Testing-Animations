@@ -21,7 +21,7 @@ const ModalizeVideo: FC<Iprops> = ({ modalize, video }) => {
     return (
         <Modalize
             ref={modalize}
-            snapPoint={RFPercentage(64)}
+            snapPoint={RFPercentage(70)}
             modalHeight={RFPercentage(90)}
             modalStyle={{ backgroundColor: theme.backgroundColor }}
             handleStyle={{
@@ -47,7 +47,8 @@ const ModalizeVideo: FC<Iprops> = ({ modalize, video }) => {
                     <ContainerShare onPress={async () => (
                         await Share.share({
                             title: video.title,
-                            url: `https://video-example.com/${video.id}`
+                            url: `https://video-example.com/${video.id}`,
+                            message: `https://video-example.com/${video.id}`
                         }, {
                             dialogTitle: video.title
                         })

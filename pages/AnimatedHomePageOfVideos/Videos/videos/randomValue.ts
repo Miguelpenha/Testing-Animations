@@ -1,5 +1,5 @@
-function randomValue() {
-    return Math.floor(Math.random()*10000)
+function randomValue(limit: number=10000) {
+    return Math.floor(Math.random()*limit)
 }
 
 export default randomValue
