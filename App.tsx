@@ -11,23 +11,23 @@ SplashScreen.preventAutoHideAsync()
 
 function App() {
   const [isReady, setReady] = useState(false)
-  
+
   useEffect(() => {
     async function prepare() {
       await updateApp()
 
       setReady(true)
-      
+
       await SplashScreen.hideAsync()
     }
 
     prepare().then()
   }, [])
-  
+
   if (!isReady) {
     return null
   }
-  
+
   console.log(green('>> App Started'))
 
   return (

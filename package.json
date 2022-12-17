@@ -2,6 +2,7 @@
   "name": "testing-animations",
   "version": "1.0.1",
   "private": true,
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "postinstall": "npx patch-package",
     "start": "expo start",
@@ -10,8 +11,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build:android:production": "eas build --platform android --profile production",
-    "build:android:beta": "eas build --platform android --profile beta"
+    "build:android:production": "expo build:android --release-channel production -t apk",
+    "build:android:development": "expo build:android --release-channel development -t apk"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -28,6 +29,7 @@
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-animated-number": "^1.2.0",
+    "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "~2.8.0",
     "react-native-modalize": "^2.1.1",
     "react-native-reanimated": "~2.12.0",

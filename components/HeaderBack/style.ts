@@ -3,7 +3,7 @@ import ButtonBackNotStyled from '../ButtonBack'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
-    padding-top: 12%;
+    padding-top: 10%;
     flex-direction: row;
 `
 
