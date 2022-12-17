@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Container, ButtonBack, Title } from './style'
+import { Container, ContainerIcon, Icon, Title } from './style'
+import { TouchableOpacity } from 'react-native'
 import limitText from '../../utils/limitText'
 
 interface Iprops {
@@ -12,7 +13,9 @@ const HeaderBack: FC<Iprops> = ({ children }) => {
 
     return (
         <Container>
-            <ButtonBack onClick={navigation.goBack}/>
+            <ContainerIcon onPress={navigation.goBack}>
+                <Icon name="arrow-back-ios" size={25}/>
+            </ContainerIcon>
             <Title>{limitText(children, 25)}</Title>
         </Container>
     )

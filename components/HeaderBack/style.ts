@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import ButtonBackNotStyled from '../ButtonBack'
+import { MaterialIcons } from '@expo/vector-icons'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
@@ -7,9 +7,15 @@ export const Container = styled.View`
     flex-direction: row;
 `
 
-export const ButtonBack = styled(ButtonBackNotStyled)`
+export const ContainerIcon = styled.TouchableOpacity`
     margin-left: 2%;
     align-self: center;
+`
+
+export const Icon = styled(MaterialIcons)`
+    left: 20%;
+    margin-right: 5%;
+    color: ${props => props.theme.secondaryColor};
 `
 
 export const Title = styled.Text`
