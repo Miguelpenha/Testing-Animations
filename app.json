@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Testing Animations",
-    "slug": "Secrets-Animations",
+    "slug": "testing-animations",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
