@@ -21,7 +21,7 @@ const ModalizeVideo: FC<Iprops> = ({ modalize, video }) => {
     return (
         <Modalize
             ref={modalize}
-            snapPoint={RFPercentage(70)}
+            snapPoint={RFPercentage(75)}
             modalHeight={RFPercentage(90)}
             modalStyle={{ backgroundColor: theme.backgroundColor }}
             handleStyle={{
