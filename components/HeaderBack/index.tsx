@@ -1,7 +1,6 @@
 import { FC, memo } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Container, ContainerIcon, Icon, Title } from './style'
-import { TouchableOpacity } from 'react-native'
 import limitText from '../../utils/limitText'
 
 interface Iprops {
