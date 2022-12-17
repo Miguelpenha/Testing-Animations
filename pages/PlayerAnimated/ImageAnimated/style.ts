@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { Pressable, Dimensions } from 'react-native'
+import FastImage from 'expo-fast-image'
 
 interface IContainer {
     current: boolean
@@ -16,6 +17,6 @@ export const Container = styled(Animated.createAnimatedComponent(Pressable))<ICo
     `}
 `
 
-export const Image = styled.Image`
+export const Image = styled(FastImage)`
     aspect-ratio: 1;
 `
