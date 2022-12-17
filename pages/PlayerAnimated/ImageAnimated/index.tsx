@@ -33,7 +33,7 @@ const ImageAnimated: FC<Iprops> = ({ currentImage, image, onPress }) => {
                 pressedContainerImageOpacity.value = withTiming(1)
             }}
         >
-            <Image uri={image.url}/>
+            <Image source={{uri: image.url}}/>
         </Container>
     )
 }
