@@ -12,7 +12,9 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "build:android:production": "expo build:android --release-channel production -t apk",
-    "build:android:development": "expo build:android --release-channel development -t apk"
+    "build:android:production:noWait": "expo build:android --release-channel production -t apk --no-wait",
+    "build:android:development": "expo build:android --release-channel development -t apk",
+    "build:android:development:noWait": "expo build:android --release-channel production -t apk --no-wait"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",

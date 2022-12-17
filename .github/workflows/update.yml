@@ -1,9 +1,9 @@
-name: update
+name: build
 on: push
 
 jobs:
-  update:
-    name: EAS Update
+  build:
+    name: Expo build android
     runs-on: ubuntu-latest
     steps:
       - name: Check for EXPO_TOKEN
@@ -26,7 +26,6 @@ jobs:
         uses: expo/expo-github-action@v7
         with:
           expo-version: latest
-          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Find yarn cache
@@ -43,5 +42,5 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Create build
-        run: npm run build:android:production
+      - name: Create build android
+        run: npm run build:android:production:noWait
