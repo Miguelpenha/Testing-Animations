@@ -1,31 +1,14 @@
-import { useNavigation } from '@react-navigation/native'
 import ContainerPd from '../../components/ContainerPd'
-import { Title, Button, TextButton } from './style'
+import { Title } from './style'
+import { ZoomInDown } from 'react-native-reanimated'
+import OptionsList from './OptionsList'
+import options from './options'
 
 function Home() {
-  const navigation = useNavigation()
-
   return (
     <ContainerPd>
-      <Title>Testando Animações</Title>
-      <Button onPress={() => navigation.navigate('MediumAnimation')}>
-        <TextButton>Animação Medium</TextButton>
-      </Button>
-      <Button onPress={() => navigation.navigate('InputFindAnimation')}>
-        <TextButton>Animação de campo de pesquisa</TextButton>
-      </Button>
-      <Button onPress={() => navigation.navigate('PlayerAnimated')}>
-        <TextButton>Player animado</TextButton>
-      </Button>
-      <Button onPress={() => navigation.navigate('NumberAnimated')}>
-        <TextButton>Número animado</TextButton>
-      </Button>
-      <Button onPress={() => navigation.navigate('WordAnimation')}>
-        <TextButton>Animação de palavras</TextButton>
-      </Button>
-      <Button onPress={() => navigation.navigate('AnimatedHomePageOfVideos')}>
-        <TextButton>Página inicial animada de vídeos</TextButton>
-      </Button>
+      <Title entering={ZoomInDown}>Testando Animações</Title>
+      <OptionsList options={options}/>
     </ContainerPd>
   )
 }
