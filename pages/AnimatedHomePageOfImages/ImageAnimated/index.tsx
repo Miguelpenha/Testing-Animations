@@ -1,5 +1,6 @@
-import { FC, useEffect, useState } from 'react'
-import { Container, Image } from './style'
+import { FC, useState, useEffect } from 'react'
+import { Image, Container } from './style'
+import onLongPress from './onLongPress'
 import animation from './animation'
 
 interface Iprops {
@@ -15,7 +16,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
     }, [image])
 
     return (
-        <Container {...animation(index)} activeOpacity={0.5}>
+        <Container onLongPress={() => onLongPress(image)} {...animation(index)} activeOpacity={0.5}>
             <Image ratio={ratio} source={{ uri: image }}/>
         </Container>
     )

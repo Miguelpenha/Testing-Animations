@@ -1,8 +1,8 @@
 import images from './images'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
-import ImageAnimated from './ImageAnimated'
 import { Images, ContainerColumns, ColumnImages} from './style'
+import ImageAnimated from './ImageAnimated'
 
 function AnimatedHomePageOfImages() {
     const half = Math.ceil(images.length/2)
