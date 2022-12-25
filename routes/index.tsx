@@ -10,7 +10,6 @@ import PlayerAnimated from '../pages/PlayerAnimated'
 import NumberAnimated from '../pages/NumberAnimated'
 import MediumAnimation from '../pages/MediumAnimation'
 import InputFindAnimation from '../pages/InputFindAnimation'
-import PercentageAnimation from '../pages/PercentageAnimation'
 import AnimatedHomePageOfVideos from '../pages/AnimatedHomePageOfVideos'
 import AnimatedHomePageOfImages from '../pages/AnimatedHomePageOfImages'
 
@@ -33,7 +32,6 @@ function Routes() {
           <Screen name="NumberAnimated" component={NumberAnimated}/>
           <Screen name="MediumAnimation" component={MediumAnimation}/>
           <Screen name="InputFindAnimation" component={InputFindAnimation}/>
-          <Screen name="PercentageAnimation" component={PercentageAnimation}/>
           <Screen name="AnimatedHomePageOfVideos" component={AnimatedHomePageOfVideos}/>
           <Screen name="AnimatedHomePageOfImages" component={AnimatedHomePageOfImages}/>
         </Navigator>
