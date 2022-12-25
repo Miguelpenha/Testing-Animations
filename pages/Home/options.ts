@@ -28,6 +28,10 @@ const options: IOption[] = [
     {
         page: 'AnimatedHomePageOfImages',
         title: 'Página inicial animada de imagens'
+    },
+    {
+        page: 'PercentageAnimation',
+        title: 'Animação de porcentagem'
     }
 ]
 
