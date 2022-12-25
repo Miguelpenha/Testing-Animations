@@ -1,14 +1,11 @@
-import { useNavigation } from '@react-navigation/native'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 import { Container, ContainerWord, Label } from './style'
+import { FadeInDown } from 'react-native-reanimated'
 import WordAnimated from './WordAnimated'
 import words from './words'
-import { FadeInDown } from 'react-native-reanimated'
 
 function WordAnimation() {
-    const navigation = useNavigation()
-    
     return (
         <ContainerPd>
             <HeaderBack>Animação de palavras</HeaderBack>
