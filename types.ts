@@ -16,4 +16,5 @@ export type INavigation = {
   MediumAnimation: undefined
   InputFindAnimation: undefined
   AnimatedHomePageOfVideos: undefined
+  AnimatedHomePageOfImages: undefined
 }

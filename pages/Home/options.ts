@@ -24,6 +24,10 @@ const options: IOption[] = [
     {
         page: 'AnimatedHomePageOfVideos',
         title: 'Página inicial animada de vídeos'
+    },
+    {
+        page: 'AnimatedHomePageOfImages',
+        title: 'Página inicial animada de imagens'
     }
 ]
 

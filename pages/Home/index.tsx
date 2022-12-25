@@ -1,14 +1,23 @@
 import ContainerPd from '../../components/ContainerPd'
-import { Title } from './style'
-import { ZoomInUp } from 'react-native-reanimated'
-import OptionsList from './OptionsList'
+import { FlatList, ListRenderItemInfo } from 'react-native'
 import options from './options'
+import { optionsContainerStyle, Title } from './style'
+import { ZoomInUp } from 'react-native-reanimated'
+import { IOption } from './type'
+import Option from './Option'
 
 function Home() {
   return (
     <ContainerPd>
-      <Title entering={ZoomInUp}>Testando Animações</Title>
-      <OptionsList options={options}/>
+      <FlatList
+        data={options}
+        contentContainerStyle={optionsContainerStyle}
+        keyExtractor={(option: IOption, index: number) => String(index)}
+        ListHeaderComponent={<Title entering={ZoomInUp}>Testando Animações</Title>}
+        renderItem={({ item: option, index }: ListRenderItemInfo<IOption>) => (
+          <Option index={index} page={option.page} title={option.title}/>
+        )}
+      />
     </ContainerPd>
   )
 }

@@ -1,4 +1,4 @@
-import { IOption } from '../../type'
+import { IOption } from '../type'
 import { FC, memo } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import useAnimation from './useAnimation'
