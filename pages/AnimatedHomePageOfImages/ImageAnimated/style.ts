@@ -3,7 +3,7 @@ import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
-    padding: 2%;
+    padding: 3%;
 `
 
 interface IImage {
