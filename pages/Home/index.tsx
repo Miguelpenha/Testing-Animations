@@ -2,7 +2,7 @@ import ContainerPd from '../../components/ContainerPd'
 import { FlatList, ListRenderItemInfo } from 'react-native'
 import options from './options'
 import { optionsContainerStyle, Title } from './style'
-import { ZoomInUp } from 'react-native-reanimated'
+import { ZoomInDown } from 'react-native-reanimated'
 import { IOption } from './type'
 import Option from './Option'
 
@@ -13,7 +13,7 @@ function Home() {
         data={options}
         contentContainerStyle={optionsContainerStyle}
         keyExtractor={(option: IOption, index: number) => String(index)}
-        ListHeaderComponent={<Title entering={ZoomInUp}>Testando Animações</Title>}
+        ListHeaderComponent={<Title entering={ZoomInDown}>Testando Animações</Title>}
         renderItem={({ item: option, index }: ListRenderItemInfo<IOption>) => (
           <Option index={index} page={option.page} title={option.title}/>
         )}
