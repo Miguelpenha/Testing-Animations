@@ -13,12 +13,6 @@ jobs:
             exit 1
           fi
 
-      - name: Create .env File
-        run: |
-          pwd
-          echo "${{ secrets.ENV_FILE}}" > ../../.env
-          ls -a
-
       - name: Check for EXPO_TOKEN
         run: |
           if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
@@ -51,9 +45,15 @@ jobs:
           path: ${{ steps.yarn-cache-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-yarn-
-
+      
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Create .env File
+        run: |
+          pwd
+          echo "${{ secrets.ENV_FILE}}" > ../../.env
+          ls -a
 
       - name: Create build android
         run: npm run build:android:production:noWait
