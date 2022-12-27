@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import Routes from './routes'
 import 'react-native-gesture-handler'
+import 'react-native-url-polyfill/auto'
 
 function App() {
   const [isReady, setReady] = useState(false)

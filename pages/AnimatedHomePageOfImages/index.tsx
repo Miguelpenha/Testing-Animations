@@ -1,13 +1,11 @@
-import images from './images'
+import useImages from './useImages'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 import { Images, ContainerColumns, ColumnImages} from './style'
 import ImageAnimated from './ImageAnimated'
 
 function AnimatedHomePageOfImages() {
-    const half = Math.ceil(images.length/2)
-    const imagesRow1 = images.slice(0, half)
-    const imagesRow2 = images.slice(half)
+    const { imagesRow1, imagesRow2 } = useImages()
 
     return (
         <ContainerPd>

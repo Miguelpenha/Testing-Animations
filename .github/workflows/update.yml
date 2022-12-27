@@ -6,6 +6,16 @@ jobs:
     name: Expo build android
     runs-on: ubuntu-latest
     steps:
+      - name: Check for ENV_FILE
+        run: |
+          if [ -z "${{ secrets.ENV_FILE }}" ]; then
+            echo "ENV_FILE is missing"
+            exit 1
+          fi
+
+      - name: Create .env File
+        run: echo "${{ secrets.ENV_file }}" > .env
+
       - name: Check for EXPO_TOKEN
         run: |
           if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
