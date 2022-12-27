@@ -14,7 +14,10 @@ jobs:
           fi
 
       - name: Create .env File
-        run: echo "${{ secrets.ENV_FILE}}" > ../../.env
+        run: |
+          pwd
+          echo "${{ secrets.ENV_FILE}}" > ../../.env
+          ls -a
 
       - name: Check for EXPO_TOKEN
         run: |
@@ -51,9 +54,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: list
-        run: pwd
 
       - name: Create build android
         run: npm run build:android:production:noWait
