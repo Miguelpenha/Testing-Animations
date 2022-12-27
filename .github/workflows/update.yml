@@ -53,8 +53,9 @@ jobs:
         run: |
           pwd
           touch .env
-          echo "${{ secrets.ENV_FILE}}" > .env
+          echo "${{ secrets.ENV_FILE}}" >> .env
           ls -a
+          cat .env
 
       - name: Create build android
         run: npm run build:android:production:noWait
