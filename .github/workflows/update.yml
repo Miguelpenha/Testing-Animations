@@ -14,7 +14,8 @@ jobs:
           fi
 
       - name: Create .env File
-        run: echo "${{ secrets.ENV_FILE}}" > .env
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
 
       - name: Check for EXPO_TOKEN
         run: |
