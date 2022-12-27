@@ -52,5 +52,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: list
+        run: ls
+
       - name: Create build android
         run: npm run build:android:production:noWait
