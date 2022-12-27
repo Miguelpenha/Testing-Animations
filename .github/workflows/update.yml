@@ -53,7 +53,7 @@ jobs:
         run: yarn install --immutable
 
       - name: list
-        run: ls
+        run: ls -a
 
       - name: Create build android
         run: npm run build:android:production:noWait
