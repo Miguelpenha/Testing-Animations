@@ -1,4 +1,4 @@
-import { IVideo } from '../Videos/type'
+import { IMovie } from '../type'
 import { MutableRefObject, FC } from 'react'
 import { IHandles } from 'react-native-modalize/lib/options'
 import { Modalize } from 'react-native-modalize'
@@ -10,21 +10,21 @@ import Data from './Data'
 import useData from './useData'
 
 interface Iprops {
-    video: IVideo
+    movie: IMovie
     modalize: MutableRefObject<IHandles>
 }
 
-const ModalizeVideo: FC<Iprops> = ({ modalize, video }) => {
-    const data = useData(video)
+const ModalizeMovie: FC<Iprops> = ({ modalize, movie }) => {
+    const data = useData(movie)
 
     return (
         <Modalize
             ref={modalize}
             {...modalizeConfig()}
         >
-            {video && (
+            {movie && (
                 <Container>
-                    <Thumbnail uri={video.thumbnail}/>
+                    <Thumbnail uri={movie.image}/>
                     {data.map((data, index) => (
                         <Data
                             key={index}
@@ -36,11 +36,11 @@ const ModalizeVideo: FC<Iprops> = ({ modalize, video }) => {
                             {data.data}
                         </Data>
                     ))}
-                    <Share video={video}/>
+                    <Share movie={movie}/>
                 </Container>
             )}
         </Modalize>
     )
 }
 
-export default ModalizeVideo
+export default ModalizeMovie

@@ -1,7 +1,8 @@
 export declare global {
     namespace NodeJS {
       interface ProcessEnv {
-        ACCESS_KEY: string
+        API_KEY_MOVIEDB: string
+        ACCESS_KEY_UNSPLASH: string
         NODE_ENV: 'development' | 'production'
       }
     }

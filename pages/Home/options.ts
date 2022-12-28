@@ -22,8 +22,8 @@ const options: IOption[] = [
         title: 'Animação de palavras'
     },
     {
-        page: 'AnimatedHomePageOfVideos',
-        title: 'Página inicial animada de vídeos'
+        page: 'AnimatedHomePageOfMovies',
+        title: 'Página inicial animada de filmes'
     },
     {
         page: 'AnimatedHomePageOfImages',

@@ -10,8 +10,8 @@ function useAnimation(onPress: () => void): AnimateProps<TouchableOpacityProps> 
     }))
 
     return {
-        ...events(scale, onPress),
         style: scaleAnimation,
+        ...events(scale, onPress),
         entering: FadeInDown.delay(200).duration(600),
     }
 }

@@ -10,7 +10,7 @@ import PlayerAnimated from '../pages/PlayerAnimated'
 import NumberAnimated from '../pages/NumberAnimated'
 import MediumAnimation from '../pages/MediumAnimation'
 import InputFindAnimation from '../pages/InputFindAnimation'
-import AnimatedHomePageOfVideos from '../pages/AnimatedHomePageOfVideos'
+import AnimatedHomePageOfMovies from '../pages/AnimatedHomePageOfMovies'
 import AnimatedHomePageOfImages from '../pages/AnimatedHomePageOfImages'
 
 function Routes() {
@@ -32,7 +32,7 @@ function Routes() {
           <Screen name="NumberAnimated" component={NumberAnimated}/>
           <Screen name="MediumAnimation" component={MediumAnimation}/>
           <Screen name="InputFindAnimation" component={InputFindAnimation}/>
-          <Screen name="AnimatedHomePageOfVideos" component={AnimatedHomePageOfVideos}/>
+          <Screen name="AnimatedHomePageOfMovies" component={AnimatedHomePageOfMovies}/>
           <Screen name="AnimatedHomePageOfImages" component={AnimatedHomePageOfImages}/>
         </Navigator>
       </NavigationContainer>
