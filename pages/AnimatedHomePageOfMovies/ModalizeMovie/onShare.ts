@@ -1,4 +1,4 @@
-import { IMovie } from '../../type'
+import { IMovie } from '../type'
 import { Share } from 'react-native'
 
 async function onShare(movie: IMovie) {

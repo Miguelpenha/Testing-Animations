@@ -15,7 +15,7 @@ const Data: FC<Iprops> = ({ index, value, icon, isTitle, children }) => {
         <Container
             activeOpacity={0.5}
             entering={animation(index)}
-            onPress={() => onCopy(value)}
+            onLongPress={() => onCopy(value)}
         >
             <Icon name={icon} size={24}/>
             <Value isTitle={isTitle}>{children}</Value>

@@ -1,22 +1,21 @@
-import { useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
-import animationContainer from './animationContainer'
+import Animated, { useSharedValue, useAnimatedStyle, FadeInUp } from 'react-native-reanimated'
+import { TouchableOpacityProps } from 'react-native'
+import events from './events'
 
-function useAnimation(index: number, onPress: () => void, onLongPress: () => void) {
-    const scaleThumbnail = useSharedValue(1)
-    const scaleData = useSharedValue(1)
+function useAnimation(index: number, onPress: () => void): Animated.AnimateProps<TouchableOpacityProps> {
+    const scale = useSharedValue(1)
+    const padding = useSharedValue(3)
 
-    const animationThumbnail = useAnimatedStyle(() => ({
-        transform: [{ scale: scaleThumbnail.value }]
-    }))
-
-    const animationData = useAnimatedStyle(() => ({
-        transform: [{ scale: scaleData.value }]
+    const animation = useAnimatedStyle(() => ({
+        padding: `${padding.value}%`,
+        transform: [{ scale: scale.value }]
     }))
 
     return {
-        animationData,
-        animationThumbnail,
-        animationContainer: () => animationContainer(index, scaleThumbnail, scaleData, onPress, onLongPress)
+        style: animation,
+        activeOpacity: 0.5,
+        ...events(scale, padding, onPress),
+        entering: FadeInUp.delay(200+(index*100)).duration(800)
     }
 }
 

@@ -8,7 +8,6 @@ import AnimatedNumber from 'react-native-animated-number'
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
     width: 90%;
     margin: 4%;
-    padding: 3%;
     align-self: center;
     border-radius: 10px;
     background-color: ${props => props.theme.backgroundColorSecondary};
@@ -17,8 +16,11 @@ export const Container = styled(Animated.createAnimatedComponent(TouchableOpacit
 export const Thumbnail = styled(Animated.Image)`
     width: 100%;
     aspect-ratio: 1.7;
-    margin-bottom: 5%;
     border-radius: 15px;
+`
+
+export const Data = styled(Animated.View)`
+    margin-top: 5%;
 `
 
 export const Title = styled.Text`

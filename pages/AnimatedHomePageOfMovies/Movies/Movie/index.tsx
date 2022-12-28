@@ -1,11 +1,9 @@
 import { FC, useState, useEffect } from 'react'
 import { IMovie } from '../../type'
-import Animated, { ZoomIn, FadeInDown } from 'react-native-reanimated'
-import { Container, Thumbnail, Title, Numbers, ContainerNumber, IconNumber, Number } from './style'
+import { ZoomIn, FadeInDown } from 'react-native-reanimated'
+import { Container, Thumbnail, Data, Title, Numbers, ContainerNumber, IconNumber, Number } from './style'
 import limitText from '../../../../utils/limitText'
 import useAnimation from './useAnimation'
-import * as Clipboard from 'expo-clipboard'
-import SimpleToast from 'react-native-simple-toast'
 
 interface Iprops {
     movie: IMovie
@@ -16,13 +14,7 @@ interface Iprops {
 const Movie: FC<Iprops> = ({ movie, index, onPress }) => {
     const [votes, setVotes] = useState(0)
     const [average, setAverage] = useState(0)
-    const { animationContainer, animationThumbnail, animationData } = useAnimation(index, onPress, onLongPress)
-
-    function onLongPress() {
-        Clipboard.setString(`https://www.google.com/search?q=${movie.title.replace(/ /g, '+')}`)
-
-        SimpleToast.show('Link do filme copiado!', SimpleToast.SHORT)
-    }
+    const animation = useAnimation(index, onPress)
 
     useEffect(() => {
         setTimeout(() => {
@@ -32,13 +24,12 @@ const Movie: FC<Iprops> = ({ movie, index, onPress }) => {
     }, [])
     
     return (
-        <Container {...animationContainer()}>
+        <Container {...animation}>
             <Thumbnail
-                style={animationThumbnail}
                 source={{ uri: movie.image }}
                 entering={ZoomIn.delay(300+(index*100)).duration(300)}
             />
-            <Animated.View style={animationData} entering={FadeInDown.delay(300+(index*100)).duration(500)}>
+            <Data entering={FadeInDown.delay(300+(index*100)).duration(500)}>
                 <Title>{limitText(movie.title, 35)}</Title>
                 <Numbers>
                     <ContainerNumber>
@@ -60,7 +51,7 @@ const Movie: FC<Iprops> = ({ movie, index, onPress }) => {
                         />
                     </ContainerNumber>
                 </Numbers>
-            </Animated.View>
+            </Data>
         </Container>
     )
 }
