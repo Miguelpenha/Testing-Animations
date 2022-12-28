@@ -1,7 +1,7 @@
 import { Basic } from 'unsplash-js/src/methods/photos/types'
 import { FC, useState, useEffect } from 'react'
 import { Image, Container } from './style'
-import onLongPress from './onLongPress'
+import * as Linking from 'expo-linking'
 import animation from './animation'
 
 interface Iprops {
@@ -21,7 +21,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
     }, [image])
 
     return (
-        <Container onLongPress={() => onLongPress(image.links.html)} {...animation(index)} activeOpacity={0.5}>
+        <Container onPress={async () => await Linking.openURL(image.links.html)} {...animation(index)} activeOpacity={0.5}>
             <Image ratio={ratio} source={{ uri: image.links.download }}/>
         </Container>
     )
