@@ -4,7 +4,7 @@ import { useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
 
 function useAnimation(index: number, onPress: () => void): AnimateProps<TouchableOpacityProps> {
     const scale = useSharedValue(1)
-    const entering = FadeInDown.delay(600+(index*150)).duration(600)
+    const entering = FadeInDown.delay(800+(index*150)).duration(600)
 
     const animation = useAnimatedStyle(() => ({
         transform: [{ scale: scale.value }]
