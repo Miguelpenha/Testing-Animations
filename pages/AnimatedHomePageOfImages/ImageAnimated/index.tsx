@@ -1,8 +1,8 @@
 import { Basic } from 'unsplash-js/src/methods/photos/types'
 import { FC, useState, useEffect } from 'react'
-import { Image, Container } from './style'
+import useAnimation from './useAnimation'
 import * as Linking from 'expo-linking'
-import animation from './animation'
+import { Image, Container } from './style'
 
 interface Iprops {
     image: Basic
@@ -11,6 +11,7 @@ interface Iprops {
 
 const ImageAnimated: FC<Iprops> = ({ index, image }) => {
     const [ratio, setRatio] = useState(1)
+    const animation = useAnimation(index, async () => await Linking.openURL(image.links.html))
 
     useEffect(() => {
         try {
@@ -21,7 +22,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
     }, [image])
 
     return (
-        <Container onPress={async () => await Linking.openURL(image.links.html)} {...animation(index)} activeOpacity={0.5}>
+        <Container {...animation} activeOpacity={0.5}>
             <Image ratio={ratio} source={{ uri: image.links.download }}/>
         </Container>
     )
