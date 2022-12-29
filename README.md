@@ -1,6 +1,8 @@
 # Testing-Animations
 Testando animações no React Native
 
+[Baixar APK](https://github.com/Miguelpenha/Testing-Animations/releases)
+
 ## Páginas
 
 ### Início
