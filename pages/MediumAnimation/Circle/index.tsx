@@ -18,7 +18,7 @@ const Circle: FC<Iprops> = ({ padding, onPress, index }) => {
             activeOpacity={0.5}
             style={containerAnimation}
             {...events(() => onPress(index))}
-            entering={FadeInDown.duration(800).delay(100)}
+            entering={FadeInDown.delay(150+(index*250)).duration(800)}
         />
     )
 }
