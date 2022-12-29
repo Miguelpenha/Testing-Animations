@@ -19,7 +19,7 @@ function events(scale: SharedValue<number>, onPress: () => void): TouchableOpaci
                 })
             )
 
-            onPress()
+            setTimeout(onPress, 300)
         }
     }
 }
