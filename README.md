@@ -3,7 +3,7 @@ Testando animações no React Native
 
 ## Páginas
 
-### Home
+### Início
 ![Vídeo Home](https://user-images.githubusercontent.com/65141147/209977251-e212aed8-9007-4d9f-aa19-5622037868bb.gif)
 
 ### Animação Medium
