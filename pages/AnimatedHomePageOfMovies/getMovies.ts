@@ -1,7 +1,7 @@
-import { IMovie, IMovieRaw } from '../type'
-import moviedb from '../../../services/moviedb'
 import { Dispatch, SetStateAction } from 'react'
-import getImage from '../../../services/moviedb/getPoster'
+import { IMovie, IMovieRaw } from './type'
+import moviedb from '../../services/moviedb'
+import getImage from '../../services/moviedb/getPoster'
 
 async function getMovies(setMovies: Dispatch<SetStateAction<IMovie[]>>) {
     const { results: moviesRaw }: { results: IMovieRaw[] }  = (await moviedb.get('/discover/movie')).data

@@ -1,20 +1,31 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { IMovie } from './type'
 import { IHandles } from 'react-native-modalize/lib/options'
+import getMovies from './getMovies'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 import Movies from './Movies'
-import ModalizeMovie from './ModalizeMovie'
+import Loading from '../../components/Loading'
 import onSelectMovie from './onSelectMovie'
+import ModalizeMovie from './ModalizeMovie'
 
 function AnimatedHomePageOfMovies() {
+    const [movies, setMovies] = useState<IMovie[]>([])
     const [movieSelect, setMovieSelect] = useState<IMovie>()
     const modalizeMovie = useRef<IHandles>(null)
+
+    useEffect(() => {
+        getMovies(setMovies).then()
+    }, [])
 
     return (
         <ContainerPd>
             <HeaderBack>Página inicial animada de filmes</HeaderBack>
-            <Movies onSelectMovie={movie => onSelectMovie(movie, setMovieSelect, modalizeMovie)}/>
+            {movies.length > 0 ? (
+                <Movies movies={movies} onSelectMovie={movie => onSelectMovie(movie, setMovieSelect, modalizeMovie)}/>
+            ) : (
+                <Loading/>
+            )}
             <ModalizeMovie movie={movieSelect} modalize={modalizeMovie}/>
         </ContainerPd>
     )

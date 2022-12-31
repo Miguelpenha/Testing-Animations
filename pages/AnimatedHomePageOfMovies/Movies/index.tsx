@@ -1,26 +1,20 @@
 import { IMovie } from '../type'
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { Container, Title } from './style'
 import { ListRenderItemInfo } from 'react-native'
 import Movie from './Movie'
-import getMovies from './getMovies'
 
 interface Iprops {
+    movies: IMovie[]
     onSelectMovie: (movie: IMovie) => void
 }
 
-const Movies: FC<Iprops> = ({ onSelectMovie }) => {
-    const [movies, setMovies] = useState<IMovie[]>([])
-
-    useEffect(() => {
-        getMovies(setMovies).then()
-    }, [])
-
+const Movies: FC<Iprops> = ({ movies, onSelectMovie }) => {
     return (
         <Container
             data={movies}
-            ListHeaderComponent={<Title>Dados do Movie db</Title>}
             keyExtractor={(item: IMovie) => item.id}
+            ListHeaderComponent={<Title>Dados do Movie db</Title>}
             renderItem={({ item: movie, index }: ListRenderItemInfo<IMovie>) => (
                 <Movie
                     movie={movie}
