@@ -13,7 +13,7 @@ function useAnimation(index: number, onPress: () => void): AnimateProps<Touchabl
     return {
         style: animationScale,
         ...events(scale, onPress),
-        entering: FadeInDown.delay(index*100).duration(500)
+        entering: FadeInDown.delay(200+(index*50)).duration(500)
     }
 }
 
