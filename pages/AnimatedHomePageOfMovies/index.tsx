@@ -22,7 +22,7 @@ function AnimatedHomePageOfMovies() {
         <ContainerPd>
             <HeaderBack>Página inicial animada de filmes</HeaderBack>
             {movies.length > 0 ? (
-                <Movies movies={movies} onSelectMovie={movie => onSelectMovie(movie, setMovieSelect, modalizeMovie)}/>
+                <Movies movies={movies} setMovies={setMovies} onSelectMovie={movie => onSelectMovie(movie, setMovieSelect, modalizeMovie)}/>
             ) : (
                 <Loading/>
             )}
