@@ -2,6 +2,7 @@ import { Basic } from 'unsplash-js/src/methods/photos/types'
 import { FC, useState, useEffect } from 'react'
 import useAnimation from './useAnimation'
 import * as Linking from 'expo-linking'
+import { Share } from 'react-native'
 import { Image, Container, Loading } from './style'
 
 interface Iprops {
@@ -12,7 +13,19 @@ interface Iprops {
 const ImageAnimated: FC<Iprops> = ({ index, image }) => {
     const [ratio, setRatio] = useState(1)
     const [isLoaded, setIsLoaded] = useState(false)
-    const animation = useAnimation(index, async () => await Linking.openURL(image.links.html))
+    const animation = useAnimation(
+        index,
+        async () => await Linking.openURL(image.links.html),
+        async () => {
+            await Share.share({
+                url: image.links.html,
+                title: image.user.name,
+                message: image.links.html
+            }, {
+                dialogTitle: image.user.name
+            })
+        }
+    )
 
     useEffect(() => {
         try {

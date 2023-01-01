@@ -5,14 +5,14 @@ import unsplash from '../../services/unsplash'
 function useImages() {
     const [images, setImages] = useState<Basic[]>([])
 
+    async function getImages() {
+        const { response: { results: images } } = await unsplash.photos.list({ perPage: 15 })
+
+        setImages(images)
+    }
+
     useEffect(() => {
-        async function get() {
-            const { response: { results: images } } = await unsplash.photos.list({  })
-
-            setImages(images)
-        }
-
-        get().then()
+        getImages().then()
     }, [])
     
     const half = Math.ceil(images.length/2)
@@ -20,6 +20,7 @@ function useImages() {
     const imagesRow2 = images.slice(half)
     
     return {
+        getImages,
         imagesRow1,
         imagesRow2
     }

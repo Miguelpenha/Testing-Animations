@@ -1,7 +1,7 @@
 import { TouchableOpacityProps } from 'react-native'
 import { SharedValue, withTiming, withSequence } from 'react-native-reanimated'
 
-function events(scale: SharedValue<number>, onPress: () => void): TouchableOpacityProps {
+function events(scale: SharedValue<number>, onPress: () => Promise<void>, onLongPress: () => Promise<void>): TouchableOpacityProps {
     return {
         onPressIn() {
             scale.value = withTiming(0.9)
@@ -20,6 +20,11 @@ function events(scale: SharedValue<number>, onPress: () => void): TouchableOpaci
             )
 
             setTimeout(onPress, 300)
+        },
+        async onLongPress() {
+            scale.value = withTiming(1)
+
+            await onLongPress()
         }
     }
 }
