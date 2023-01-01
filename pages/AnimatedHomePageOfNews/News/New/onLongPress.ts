@@ -1,13 +1,16 @@
-import * as Clipboard from 'expo-clipboard'
-import SimpleToast from 'react-native-simple-toast'
 import baseURL from '../../../../services/tabNews/baseURL'
+import { Share } from 'react-native'
 
-function onLongPress(author: string, slug: string) {
+async function onLongPress(author: string, slug: string, title: string) {
     const url = `${baseURL}/${author}/${slug}`
 
-    Clipboard.setString(url)
-
-    SimpleToast.show('Link da notícia copiado!', SimpleToast.SHORT)
+    await Share.share({
+        url,
+        title: title,
+        message: url
+    }, {
+        dialogTitle: title
+    })
 }
 
 export default onLongPress

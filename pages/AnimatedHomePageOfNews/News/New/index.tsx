@@ -15,7 +15,7 @@ const New: FC<Iprops> = ({ index, newProp }) => {
     const animation = useAnimation(
         index,
         async () => onPress(newProp.author, newProp.slug),
-        () => onLongPress(newProp.author, newProp.slug)
+        () => onLongPress(newProp.author, newProp.slug, newProp.title)
     )
     
     return (

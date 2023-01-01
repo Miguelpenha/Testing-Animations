@@ -15,7 +15,7 @@ function useAnimation(index: number, onPress: () => Promise<void>, onLongPress: 
         style: animation,
         activeOpacity: 0.5,
         ...events(scale, padding, onPress, onLongPress),
-        entering: FadeInDown.delay(200+(index*50)).duration(550),
+        entering: FadeInDown.delay(200+(index*110)).duration(550),
     }
 }
 
