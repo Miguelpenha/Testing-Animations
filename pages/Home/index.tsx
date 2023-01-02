@@ -1,6 +1,7 @@
 import ContainerPd from '../../components/ContainerPd'
 import { FlatList, ListRenderItemInfo } from 'react-native'
 import options from './options'
+import Footer from './Footer'
 import { optionsContainerStyle, Title } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import { IOption } from './type'
@@ -11,6 +12,7 @@ function Home() {
     <ContainerPd>
       <FlatList
         data={options}
+        ListFooterComponent={<Footer/>}
         contentContainerStyle={optionsContainerStyle}
         keyExtractor={(option: IOption, index: number) => String(index)}
         ListHeaderComponent={<Title entering={FadeInDown}>Testando Animações</Title>}
