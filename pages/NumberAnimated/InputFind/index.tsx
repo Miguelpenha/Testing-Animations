@@ -16,7 +16,7 @@ const InputFind: FC<TextInputProps> = props => {
             placeholder="Número"
             keyboardType="numeric"
             selectionColor={theme.primary}
-            entering={FadeInDown.duration(500)}
+            entering={FadeInDown.delay(300).duration(500)}
             placeholderTextColor={theme.primary}
         />
     )

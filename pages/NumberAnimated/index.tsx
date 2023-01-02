@@ -9,7 +9,11 @@ import { AnimatedNumber } from './style'
 function NumberAnimated() {
     const [number, setNumber] = useState(0)
 
-    useEffect(() => setNumber(250), [])
+    useEffect(() => {
+        setTimeout(() => (
+            setNumber(250)
+        ), 500)
+    }, [])
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -17,7 +21,7 @@ function NumberAnimated() {
                 <ContainerPd>
                     <HeaderBack>Número animado</HeaderBack>
                     <InputFind onChangeText={text => Number(text) >= 0 && setNumber(Number(text))}/>
-                    <Animated.View entering={FadeInDown.duration(500)}>
+                    <Animated.View entering={FadeInDown.delay(500).duration(500)}>
                         <AnimatedNumber time={25} value={number}/>
                     </Animated.View>
                 </ContainerPd>
