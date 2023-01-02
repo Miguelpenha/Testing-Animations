@@ -14,7 +14,7 @@ function Home() {
         data={options}
         ListFooterComponent={<Footer/>}
         contentContainerStyle={optionsContainerStyle}
-        keyExtractor={(option: IOption, index: number) => String(index)}
+        keyExtractor={(option, index: number) => String(index)}
         ListHeaderComponent={<Title entering={FadeInDown}>Testando Animações</Title>}
         renderItem={({ item: option, index }: ListRenderItemInfo<IOption>) => (
           <Option index={index} page={option.page} title={option.title}/>
