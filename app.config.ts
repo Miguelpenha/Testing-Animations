@@ -16,7 +16,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     backgroundColor: '#200004'
   },
   updates: {
-    url: ''
+    url: 'https://u.expo.dev/af8f31e8-cc2a-4305-b39c-64535d83c782'
   },
   assetBundlePatterns: [
     '**/*'
