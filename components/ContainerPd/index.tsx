@@ -3,8 +3,9 @@ import { FC } from 'react'
 import { Container, ContainerScroll } from './style'
 
 interface Iprops {
-    style?: ViewStyle
+    children: any
     scroll?: boolean
+    style?: ViewStyle
 }
 
 const ContainerPd: FC<Iprops> = ({ scroll, children, ...props }) => {

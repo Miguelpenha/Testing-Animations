@@ -5,7 +5,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
     width: 65%;
-    elevation: 8;
+    elevation: 4;
     margin-top: 10%;
     padding: 3.5% 4%;
     align-self: center;

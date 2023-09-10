@@ -5,7 +5,7 @@ import Constants from 'expo-constants'
 function Footer() {
     return (
         <Container entering={FadeInDown}>
-            <Version>Versão {Constants.manifest.version}</Version>
+            <Version>Versão {Constants.manifest2.extra.expoClient.version}</Version>
             <ContainerPoweredBy>
                 <TextPoweredBy>Powered by</TextPoweredBy>
                 <TextPoweredByName>Miguel da Penha</TextPoweredByName>
