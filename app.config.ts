@@ -26,7 +26,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       backgroundColor: '#200004',
       foregroundImage: './assets/adaptive-icon.png'
     },
-    package: 'com.miguelpenha.testing-animations'
+    package: 'com.miguelpenha.testingAnimations'
   },
   ios: {
     supportsTablet: true
@@ -37,7 +37,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     ...process.env,
     eas: {
-      projectId: ''
+      projectId: 'af8f31e8-cc2a-4305-b39c-64535d83c782'
     }
   },
   runtimeVersion: {
