@@ -4,7 +4,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   owner: 'miguelpenha',
   scheme: 'testing-animations',
-  name: 'Testing-Animations',
+  name: 'Testing Animations',
   slug: 'Testing-Animations',
   version: '1.0.0',
   orientation: 'portrait',
