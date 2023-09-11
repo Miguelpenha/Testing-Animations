@@ -1,3 +1,9 @@
+export interface IPage {
+  url: string
+  title: string
+  description: string
+}
+
 export interface ITheme {
   name: string
   color: string

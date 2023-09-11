@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
@@ -7,15 +7,39 @@ export const Container = styled.View`
     flex-direction: row;
 `
 
-export const ContainerIcon = styled.TouchableOpacity`
-    margin-left: 2%;
+interface IContainerIcon {
+    direction?: 'left' | 'right'
+}
+
+export const ContainerIcon = styled.TouchableOpacity<IContainerIcon>`
     align-self: center;
+
+    ${props => props.direction === 'right' && css`
+        margin-left: auto;
+    `}
 `
 
-export const Icon = styled(MaterialIcons)`
-    left: 20%;
-    margin-right: 5%;
+interface IIcon {
+    direction?: 'left' | 'right'
+}
+
+export const Icon = styled(MaterialIcons)<IIcon>`
+    align-self: center;
     color: ${props => props.theme.secondaryColor};
+
+    ${props => {
+        if (props.direction === 'right') {
+            return css`
+                margin-right: 5%;
+                margin-left: auto;
+            `
+        } else {
+            return css`
+                left: 20%;
+                margin-right: 5%;
+            `
+        }
+    }}
 `
 
 export const Title = styled.Text`

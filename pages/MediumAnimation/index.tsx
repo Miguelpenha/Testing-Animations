@@ -3,6 +3,7 @@ import { IPadding } from './type'
 import handleCircle from './handleCircle'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
+import page from './page'
 import { Circles } from './style'
 import Circle from './Circle'
 
@@ -17,7 +18,7 @@ function MediumAnimation() {
 
   return (
     <ContainerPd>
-      <HeaderBack>Animação do Medium</HeaderBack>
+      <HeaderBack page={page}>Animação do Medium</HeaderBack>
       <Circles>
         <Circle index={1} onPress={onPress} padding={padding1}/>
         <Circle index={2} onPress={onPress} padding={padding2}/>
