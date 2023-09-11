@@ -1,34 +1,25 @@
 import { useState } from 'react'
+import useRenderItem from './useRenderItem'
 import ContainerPd from '../../components/ContainerPd'
-import { FlatList, ListRenderItemInfo } from 'react-native'
+import { FlatList } from 'react-native'
 import options from './options'
-import Header from './Header'
 import Footer from './Footer'
 import { optionsContainerStyle } from './style'
-import { IOption } from './type'
-import Option from './Option'
+import Header from './Header'
 
 function Home() {
   const [find, setFind] = useState('')
+  const renderItem = useRenderItem(find)
 
   return (
     <ContainerPd>
       <FlatList
         data={options}
-        ListHeaderComponent={<Header setFind={setFind}/>}
+        renderItem={renderItem}
         ListFooterComponent={<Footer/>}
         contentContainerStyle={optionsContainerStyle}
+        ListHeaderComponent={<Header setFind={setFind}/>}
         keyExtractor={(option, index: number) => String(index)}
-        renderItem={({ item: option, index }: ListRenderItemInfo<IOption>) => {
-          const isInTitle = option.title.toUpperCase().includes(find.toUpperCase())
-          const isInPageName = option.page.toUpperCase().includes(find.toUpperCase())
-
-          if (isInTitle || isInPageName) {
-            return (
-              <Option index={index} page={option.page} title={option.title}/>
-            )
-          }
-        }}
       />
     </ContainerPd>
   )

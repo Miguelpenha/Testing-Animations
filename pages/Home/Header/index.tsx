@@ -10,7 +10,7 @@ interface IProps {
 const Header: FC<IProps> = ({ setFind }) => {
     return (
         <>
-            <Title entering={FadeInDown}>Testando Animações</Title>
+            <Title entering={FadeInDown.duration(300)}>Testando Animações</Title>
             <InputFind setFind={setFind}/>
         </>
     )
