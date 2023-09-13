@@ -21,11 +21,41 @@ export const Description = styled(Animated.Text)`
 `
 
 export const ContainerIcon = styled(Animated.createAnimatedComponent(TouchableOpacity))`
-    margin-top: 15%;
+    margin-top: 10%;
     align-self: center;
     border-radius: 50px;
 `
 
 export const Icon = styled(AntDesign)`
+    color: ${props => props.theme.primary};
+`
+
+export const TitleLibs = styled(Animated.Text)`
+    margin-top: 8%;
+    font-weight: bold;
+    align-self: center;
+    font-size: ${RFPercentage(3)}px;
+    color: ${props => props.theme.primary};
+`
+
+export const Lib = styled(Animated.Text)`
+    margin: 8% 0%;
+    align-self: center;
+    font-size: ${RFPercentage(2.5)}px;
+    color: ${props => props.theme.primary};
+`
+
+export const TitleApis = styled(Animated.Text)`
+    margin-top: 8%;
+    font-weight: bold;
+    align-self: center;
+    font-size: ${RFPercentage(3)}px;
+    color: ${props => props.theme.primary};
+`
+
+export const Api = styled(Animated.Text)`
+    margin: 8% 0%;
+    align-self: center;
+    font-size: ${RFPercentage(2.5)}px;
     color: ${props => props.theme.primary};
 `

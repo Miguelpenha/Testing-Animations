@@ -1,6 +1,8 @@
 export interface IPage {
   url: string
   title: string
+  apis?: string[]
+  libs?: string[]
   description: string
 }
 

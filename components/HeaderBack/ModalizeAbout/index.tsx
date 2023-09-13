@@ -4,7 +4,8 @@ import { IHandles } from 'react-native-modalize/lib/options'
 import { useTheme } from 'styled-components'
 import { Modalize as ModalizeRaw } from 'react-native-modalize'
 import { RFPercentage } from 'react-native-responsive-fontsize'
-import { Title, Description, ContainerIcon, Icon } from './style'
+import { View } from 'react-native'
+import { Title, Description, ContainerIcon, Icon, TitleLibs, Lib, TitleApis, Api } from './style'
 import { FadeInDown, FadeInUp } from 'react-native-reanimated'
 import useOnPress from './useOnPress'
 
@@ -31,6 +32,22 @@ const ModalizeAbout: FC<Iprops> = ({ page, modalize }) => {
             <ContainerIcon onPress={onPress} entering={FadeInUp.delay(500).duration(400)}>
                 <Icon size={45} name="github"/>
             </ContainerIcon>
+            {page.libs && (
+                <View>
+                    <TitleLibs entering={FadeInUp.delay(700).duration(400)}>Bibliotecas usadas</TitleLibs>
+                    {page.libs.map((lib, index) => (
+                        <Lib entering={FadeInUp.delay(850+(50*index)).duration(400)} key={index}>{lib}</Lib>
+                    ))}
+                </View>
+            )}
+            {page.apis && (
+                <View>
+                    <TitleApis entering={FadeInUp.delay(900).duration(400)}>APIS usadas</TitleApis>
+                    {page.apis.map((api, index) => (
+                        <Api entering={FadeInUp.delay(1050+(50*index)).duration(400)} key={index}>{api}</Api>
+                    ))}
+                </View>
+            )}
         </ModalizeRaw>
     )
 }
