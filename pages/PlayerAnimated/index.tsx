@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 import Carousel from 'react-native-snap-carousel'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
+import page from './page'
 import { Images, Music, Artist, Nav, ContainerIconNav, IconNav } from './style'
 import images from './images'
 import { Dimensions } from 'react-native'
@@ -81,7 +82,7 @@ function PlayerAnimated() {
 
     return (
         <ContainerPd>
-            <HeaderBack>Player animado</HeaderBack>
+            <HeaderBack page={page}>Player animado</HeaderBack>
             <Images>
                 <Carousel
                     data={images}

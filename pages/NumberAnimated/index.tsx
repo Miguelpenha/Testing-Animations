@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
+import page from './page'
 import InputFind from './InputFind'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import { AnimatedNumber } from './style'
@@ -19,7 +20,7 @@ function NumberAnimated() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <KeyboardAvoidingView behavior="height" enabled>
                 <ContainerPd>
-                    <HeaderBack>Número animado</HeaderBack>
+                    <HeaderBack page={page}>Número animado</HeaderBack>
                     <InputFind onChangeText={text => Number(text) >= 0 && setNumber(Number(text))}/>
                     <Animated.View entering={FadeInDown.delay(500).duration(500)}>
                         <AnimatedNumber time={25} value={number}/>

@@ -4,9 +4,16 @@ import { RFPercentage } from 'react-native-responsive-fontsize'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AntDesign } from '@expo/vector-icons'
 
+export const Container = styled.View`
+    padding-bottom: 30%;
+`
+
 export const Title = styled(Animated.Text)`
-    margin: 8% 0%;
+    width: 80%;
+    margin-top: 8%;
+    margin-bottom: 4%;
     font-weight: bold;
+    text-align: center;
     align-self: center;
     font-size: ${RFPercentage(3.5)}px;
     color: ${props => props.theme.primary};
@@ -30,31 +37,8 @@ export const Icon = styled(AntDesign)`
     color: ${props => props.theme.primary};
 `
 
-export const TitleLibs = styled(Animated.Text)`
-    margin-top: 8%;
-    font-weight: bold;
-    align-self: center;
-    font-size: ${RFPercentage(3)}px;
-    color: ${props => props.theme.primary};
-`
-
-export const Lib = styled(Animated.Text)`
-    margin: 8% 0%;
-    align-self: center;
-    font-size: ${RFPercentage(2.5)}px;
-    color: ${props => props.theme.primary};
-`
-
-export const TitleApis = styled(Animated.Text)`
-    margin-top: 8%;
-    font-weight: bold;
-    align-self: center;
-    font-size: ${RFPercentage(3)}px;
-    color: ${props => props.theme.primary};
-`
-
-export const Api = styled(Animated.Text)`
-    margin: 8% 0%;
+export const Item = styled(Animated.Text)`
+    margin: 1% 0%;
     align-self: center;
     font-size: ${RFPercentage(2.5)}px;
     color: ${props => props.theme.primary};
