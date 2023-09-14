@@ -1,5 +1,6 @@
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
+import page from './page'
 import { Container, ContainerWord, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import WordAnimated from './WordAnimated'
@@ -8,7 +9,7 @@ import words from './words'
 function WordAnimation() {
     return (
         <ContainerPd>
-            <HeaderBack>Animação de palavras</HeaderBack>
+            <HeaderBack page={page}>Animação de palavras</HeaderBack>
             <Container>
                 <ContainerWord entering={FadeInDown}>
                     <Label>A palavra é </Label>
