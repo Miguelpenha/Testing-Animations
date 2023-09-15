@@ -32,3 +32,4 @@ Testando animações no React Native
 ## APIS
 - [Unplash](https://unsplash.com/developers)
 - [Movie DB](https://www.themoviedb.org/documentation/api)
+- [TabNews](https://www.tabnews.com.br/filipedeschamps/tentando-construir-um-pedaco-de-internet-mais-massa)
