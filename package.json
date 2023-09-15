@@ -42,7 +42,7 @@
     "unsplash-js": "^7.0.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.7",
+    "@babel/core": "^7.22.19",
     "@types/axios": "^0.14.0",
     "@types/expo": "^33.0.1",
     "@types/node": "^17.0.45",
