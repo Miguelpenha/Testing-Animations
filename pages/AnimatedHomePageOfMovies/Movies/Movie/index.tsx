@@ -1,9 +1,10 @@
-import { FC, useState, useEffect } from 'react'
 import { IMovie } from '../../type'
+import { FC } from 'react'
 import { ZoomIn, FadeInDown } from 'react-native-reanimated'
 import { Container, Thumbnail, Data, Title, Numbers, ContainerNumber, IconNumber, Number } from './style'
 import limitText from '../../../../utils/limitText'
 import useAnimation from './useAnimation'
+import useAverage from './useAverage'
 
 interface Iprops {
     movie: IMovie
@@ -12,16 +13,8 @@ interface Iprops {
 }
 
 const Movie: FC<Iprops> = ({ movie, index, onPress }) => {
-    const [votes, setVotes] = useState(0)
-    const [average, setAverage] = useState(0)
     const animation = useAnimation(index, onPress)
-
-    useEffect(() => {
-        setTimeout(() => {
-            setVotes(movie.votes)
-            setAverage(movie.average)
-        }, 100*index)
-    }, [])
+    const average = useAverage(movie)
     
     return (
         <Container {...animation}>
@@ -34,21 +27,11 @@ const Movie: FC<Iprops> = ({ movie, index, onPress }) => {
                 <Numbers>
                     <ContainerNumber>
                         <IconNumber name="thumbs-up-down" size={20}/>
-                        <Number
-                            time={25}
-                            steps={45}
-                            value={votes}
-                            formatter={votes => `${votes} votos`}
-                        />
+                        <Number>{`${movie.votes} votos`}</Number>
                     </ContainerNumber>
                     <ContainerNumber>
-                        <IconNumber name={`thumb-${average >= 7 ? 'up' : 'down'}`} size={20}/>
-                        <Number
-                            time={25}
-                            steps={45}
-                            value={average}
-                            formatter={average => `${String(average) == movie.average.toFixed(0) ? movie.average : average} média`}
-                        />
+                        <IconNumber name={`thumb-${movie.average >= 7 ? 'up' : 'down'}`} size={20}/>
+                        <Number>{average}</Number>
                     </ContainerNumber>
                 </Numbers>
             </Data>

@@ -3,7 +3,6 @@ import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 import { MaterialIcons } from '@expo/vector-icons'
-import AnimatedNumber from 'react-native-animated-number'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
     width: 90%;
@@ -44,7 +43,7 @@ export const IconNumber = styled(MaterialIcons)`
     color: ${props => props.theme.primary};
 `
 
-export const Number = styled(AnimatedNumber)`
+export const Number = styled.Text`
     font-size: ${RFPercentage(2.2)}px;
     color: ${props => props.theme.primary};
 `
