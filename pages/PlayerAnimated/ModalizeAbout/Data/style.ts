@@ -3,7 +3,8 @@ import Animated from 'react-native-reanimated'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled(Animated.View)`
-    margin-left: 5%;
+    width: 80%;
+    margin: 0% 5%;
     padding-bottom: 4%;
     flex-direction: row;
 `
