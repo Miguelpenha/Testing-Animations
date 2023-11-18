@@ -29,7 +29,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
 
     useEffect(() => {
         try {
-            Image.getSize(image.urls.regular, (width, height) => setRatio(width/height))
+            Image.getSize(image.urls.small, (width, height) => setRatio(width/height))
         } catch {
             
         }
