@@ -1,4 +1,4 @@
-import { IImage } from '../type'
+import { IImage } from '../../type'
 import { FC } from 'react'
 import { useAnimatedStyle, useSharedValue, withTiming, ZoomIn } from 'react-native-reanimated'
 import { Container, Image } from './style'
