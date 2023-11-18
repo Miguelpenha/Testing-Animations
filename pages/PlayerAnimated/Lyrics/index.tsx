@@ -18,8 +18,8 @@ const Lyrics: FC<Iprops> = ({ opacity, translateY, phrase, onPress }) => {
     }))
 
     return (
-        <Container onPress={onPress} entering={FadeInDown.delay(800).duration(800)} activeOpacity={0.8} onLongPress={() => {
-            Clipboard.setString(phrase)
+        <Container onPress={onPress} entering={FadeInDown.delay(800).duration(800)} activeOpacity={0.8} onLongPress={async () => {
+            await Clipboard.setStringAsync(phrase)
 
             SimpleToast.show('Frase copiada!', SimpleToast.SHORT)
         }}>
