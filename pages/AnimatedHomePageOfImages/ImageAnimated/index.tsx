@@ -29,7 +29,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
 
     useEffect(() => {
         try {
-            ImageRN.getSize(image.urls.regular, (width, height) => setRatio(width/height))
+            ImageRN.getSize(image.urls.full, (width, height) => setRatio(width/height))
         } catch {
             
         }
@@ -43,7 +43,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
                     transition={1000}
                     contentFit="cover"
                     placeholder={image.blur_hash}
-                    source={{ uri: image.urls.regular }}
+                    source={{ uri: image.urls.full }}
                 />
             ) : <Loading/>}
         </Container>
