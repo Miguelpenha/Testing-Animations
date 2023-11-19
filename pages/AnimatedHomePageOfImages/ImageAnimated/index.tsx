@@ -4,6 +4,7 @@ import useAnimation from './useAnimation'
 import * as Linking from 'expo-linking'
 import { Share } from 'react-native'
 import { Image, Container, Loading } from './style'
+import { Image as ImageRN } from 'react-native'
 
 interface Iprops {
     image: Basic
@@ -11,8 +12,7 @@ interface Iprops {
 }
 
 const ImageAnimated: FC<Iprops> = ({ index, image }) => {
-    const [ratio, setRatio] = useState(1)
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [ratio, setRatio] = useState<number>()
     const animation = useAnimation(
         index,
         async () => await Linking.openURL(image.links.html),
@@ -29,16 +29,23 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
 
     useEffect(() => {
         try {
-            Image.getSize(image.urls.regular, (width, height) => setRatio(width/height))
+            ImageRN.getSize(image.urls.regular, (width, height) => setRatio(width/height))
         } catch {
             
         }
     }, [image])
 
     return (
-        <Container disabled={!isLoaded} isLoaded={isLoaded} {...animation} activeOpacity={0.5}>
-            <Image isLoaded={isLoaded} onLoad={() => setIsLoaded(true)} ratio={ratio} source={{ uri: image.urls.regular }}/>
-            {!isLoaded && <Loading/>}
+        <Container {...animation} activeOpacity={0.5}>
+            {image.blur_hash && ratio ? (
+                <Image
+                    ratio={ratio}
+                    transition={1000}
+                    contentFit="cover"
+                    placeholder={image.blur_hash}
+                    source={{ uri: image.urls.regular }}
+                />
+            ) : <Loading/>}
         </Container>
     )
 }

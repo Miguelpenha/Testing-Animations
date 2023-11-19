@@ -7,7 +7,7 @@ async function getMovies(setMovies: Dispatch<SetStateAction<IMovie[]>>) {
     const { results: moviesRaw }: { results: IMovieRaw[] }  = (await moviedb.get('/discover/movie')).data
     const movies: IMovie[] = []
     
-    moviesRaw.map(async movieRaw => {
+    moviesRaw.map(async movieRaw => 
         movies.push({
             id: movieRaw.id,
             title: movieRaw.title,
@@ -15,7 +15,7 @@ async function getMovies(setMovies: Dispatch<SetStateAction<IMovie[]>>) {
             average: movieRaw.vote_average,
             image: getImage(movieRaw.backdrop_path)
         })
-    })
+    )
 
     setMovies(movies)
 }

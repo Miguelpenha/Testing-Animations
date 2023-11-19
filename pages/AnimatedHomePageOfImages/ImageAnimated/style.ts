@@ -2,12 +2,9 @@ import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
 import LoadingRaw from '../../../components/Loading'
+import { Image as ImageExpo } from 'expo-image'
 
-interface IContainer {
-    isLoaded: boolean
-}
-
-export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))<IContainer>`
+export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
     margin: 3%;
     z-index: 10;
     overflow: hidden;
@@ -17,12 +14,10 @@ export const Container = styled(Animated.createAnimatedComponent(TouchableOpacit
 
 interface IImage {
     ratio: number
-    isLoaded: boolean
 }
 
-export const Image = styled.Image<IImage>`
+export const Image = styled(ImageExpo)<IImage>`
     aspect-ratio: ${props => props.ratio};
-    opacity: ${props => props.isLoaded ? 1 : 0};
 `
 
 export const Loading = styled(LoadingRaw)`
