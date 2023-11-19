@@ -29,7 +29,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
 
     useEffect(() => {
         try {
-            Image.getSize(image.urls.small, (width, height) => setRatio(width/height))
+            Image.getSize(image.urls.regular, (width, height) => setRatio(width/height))
         } catch {
             
         }
@@ -37,7 +37,7 @@ const ImageAnimated: FC<Iprops> = ({ index, image }) => {
 
     return (
         <Container disabled={!isLoaded} isLoaded={isLoaded} {...animation} activeOpacity={0.5}>
-            <Image isLoaded={isLoaded} onLoad={() => setIsLoaded(true)} ratio={ratio} source={{ uri: image.links.download }}/>
+            <Image isLoaded={isLoaded} onLoad={() => setIsLoaded(true)} ratio={ratio} source={{ uri: image.urls.regular }}/>
             {!isLoaded && <Loading/>}
         </Container>
     )
