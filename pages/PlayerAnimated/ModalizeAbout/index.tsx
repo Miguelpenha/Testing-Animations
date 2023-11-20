@@ -4,10 +4,11 @@ import { IHandles } from 'react-native-modalize/lib/options'
 import { useTheme } from 'styled-components'
 import { Modalize as ModalizeRaw } from 'react-native-modalize'
 import { RFPercentage } from 'react-native-responsive-fontsize'
-import { Title } from './style'
-import { FadeInDown } from 'react-native-reanimated'
+import { Title, ContainerIcon, Icon } from './style'
+import { FadeInDown, ZoomIn } from 'react-native-reanimated'
 import Data from './Data'
 import organizeDatas from './organizeDatas'
+import * as Linking from 'expo-linking'
 
 interface Iprops {
     image: IImage
@@ -28,6 +29,9 @@ const ModalizeAbout: FC<Iprops> = ({ image, modalize }) => {
         >
             <Title entering={FadeInDown.delay(200).duration(800)}>Sobre</Title>
             {datas.map((data, index) => <Data key={index} index={index} data={data}/>)}
+            <ContainerIcon onPress={async () => await Linking.openURL(image.link)} entering={ZoomIn.delay(datas.length*200).duration(400)}>
+                <Icon size={45} name="spotify"/>
+            </ContainerIcon>
         </ModalizeRaw>
     )
 }

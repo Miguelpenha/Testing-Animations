@@ -9,6 +9,7 @@ let images: IImage[] = [
         language: 'English',
         music: "God's Plan",
         id: uuid.v4().toString(),
+        link: 'https://open.spotify.com/intl-pt/track/6DCZcSspjsKoFjzjrWoCdn',
         url: 'https://i.scdn.co/image/ab67616d0000b273f907de96b9a4fbc04accc0d5',
         lyrics: `Yeah, they wishin' and wishin' and wishin' and wishin'
 They wishin' on me, yuh
@@ -71,6 +72,7 @@ Yeah`
         music: 'This Is America',
         id: uuid.v4().toString(),
         artist: 'Childish Gambino',
+        link: 'https://open.spotify.com/intl-pt/track/0b9oOr2ZgvyQu88wzixux9',
         url: 'https://i.scdn.co/image/ab67616d0000b2733504664c17b7b99a3cb7d116',
         lyrics: `Yeah, yeah, yeah, yeah, yeah
 Yeah, yeah, yeah, go, go away
@@ -184,6 +186,7 @@ For a big dog`
         music: 'Felling Good',
         id: uuid.v4().toString(),
         artist: 'Nina Simone/Michael Bublé',
+        link: 'https://open.spotify.com/intl-pt/track/1AM8QdDFZMq6SrrqUnuQ9P',
         url: 'https://i.scdn.co/image/ab67616d0000b273c6ad2b2b62b581a23a7c1759',
         lyrics: `Birds flying high
 You know how I feel
@@ -244,6 +247,7 @@ I feel so good`
         language: 'French',
         music: 'Fils de joie',
         id: uuid.v4().toString(),
+        link: 'https://open.spotify.com/intl-pt/track/6w2jx3gzQAtoKP22czcANv',
         url: 'https://i.scdn.co/image/ab67616d0000b27331d6b27ffaa0b2f89234698a',
         lyrics: `Être seul c'est difficile
 Et là, ça fait des années
@@ -325,6 +329,7 @@ Et tout l'monde ferme les yeux`
         id: uuid.v4().toString(),
         music: 'Hit the Road Jack',
         album: "Unforgettable 60's Hits (50 Hits Remastered)",
+        link: 'https://open.spotify.com/intl-pt/track/2HoqbEOXgbDSLZ5XCePEXt',
         url: 'https://i.scdn.co/image/ab67616d0000b273afb055fcddab0300b316b54a',
         lyrics: `(Hit the road, Jack, and don't you come back)
 (No more, no more, no more, no more)
