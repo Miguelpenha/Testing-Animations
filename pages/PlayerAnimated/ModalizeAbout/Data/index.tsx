@@ -15,8 +15,8 @@ const Data: FC<Iprops> = ({ index, data }) => {
     return (
         <Container entering={FadeInDown.delay(400+(index*100)).duration(800)}>
             <Text label>{data.label} </Text>
-            <TouchableOpacity onPress={() => {
-                Clipboard.setString(data.value)
+            <TouchableOpacity onPress={async () => {
+                await Clipboard.setStringAsync(data.value)
 
                 SimpleToast.show('Dado copiado!', SimpleToast.SHORT)
             }}>

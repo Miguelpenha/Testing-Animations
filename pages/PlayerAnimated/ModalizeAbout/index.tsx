@@ -8,6 +8,8 @@ import { Title, ContainerIcon, Icon } from './style'
 import { FadeInDown, ZoomIn } from 'react-native-reanimated'
 import Data from './Data'
 import organizeDatas from './organizeDatas'
+import * as Clipboard from 'expo-clipboard'
+import SimpleToast from 'react-native-simple-toast'
 import * as Linking from 'expo-linking'
 
 interface Iprops {
@@ -29,7 +31,11 @@ const ModalizeAbout: FC<Iprops> = ({ image, modalize }) => {
         >
             <Title entering={FadeInDown.delay(200).duration(800)}>Sobre</Title>
             {datas.map((data, index) => <Data key={index} index={index} data={data}/>)}
-            <ContainerIcon onPress={async () => await Linking.openURL(image.link)} entering={ZoomIn.delay(datas.length*200).duration(400)}>
+            <ContainerIcon onLongPress={async () => {
+                await Clipboard.setStringAsync(image.link)
+
+                SimpleToast.show('Link da música copiado!', SimpleToast.SHORT)
+            }} onPress={async () => await Linking.openURL(image.link)} entering={ZoomIn.delay(datas.length*200).duration(400)}>
                 <Icon size={45} name="spotify"/>
             </ContainerIcon>
         </ModalizeRaw>
