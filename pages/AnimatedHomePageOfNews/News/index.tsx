@@ -1,23 +1,24 @@
 import { INew } from '../type'
-import { Dispatch, SetStateAction, FC } from 'react'
+import { FC } from 'react'
 import usePropsRefreshControl from '../../../hooks/usePropsRefreshControl'
-import getNews from '../getNews'
-import { FlatList, RefreshControl, ListRenderItemInfo } from 'react-native'
+import { FlashList, ListRenderItemInfo } from '@shopify/flash-list'
+import { RefreshControl } from 'react-native'
 import { FadeInDown } from 'react-native-reanimated'
 import { Title } from './style'
 import New from './New'
 
 interface Iprops {
     news: INew[]
-    setNews: Dispatch<SetStateAction<INew[]>>
+    getNews: () => Promise<void>
 }
 
-const News: FC<Iprops> = ({ news, setNews }) => {
-    const propsRefreshControl = usePropsRefreshControl(async () => getNews(setNews), 4)
+const News: FC<Iprops> = ({ getNews, news }) => {
+    const propsRefreshControl = usePropsRefreshControl(getNews, 4)
 
     return (
-        <FlatList
+        <FlashList
             data={news}
+            estimatedItemSize={280}
             keyExtractor={(newExtract, index) => String(index)}
             refreshControl={<RefreshControl {...propsRefreshControl}/>}
             ListHeaderComponent={<Title entering={FadeInDown}>Notícias</Title>}
