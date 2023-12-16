@@ -2,7 +2,8 @@ import { IMovie } from '../type'
 import { Dispatch, FC, SetStateAction } from 'react'
 import usePropsRefreshControl from '../../../hooks/usePropsRefreshControl'
 import getMovies from '../getMovies'
-import { Container, Title } from './style'
+import { FlashList } from '@shopify/flash-list'
+import { Title } from './style'
 import { RefreshControl } from 'react-native'
 import { ListRenderItemInfo } from '@shopify/flash-list'
 import Movie from './Movie'
@@ -17,10 +18,11 @@ const Movies: FC<Iprops> = ({ movies, setMovies, onSelectMovie }) => {
     const propsRefreshControl = usePropsRefreshControl(async () => await getMovies(setMovies))
 
     return (
-        <Container
+        <FlashList
             data={movies}
             estimatedItemSize={300}
             keyExtractor={(item: IMovie) => item.id}
+            contentContainerStyle={{ paddingTop: 5 }}
             ListHeaderComponent={<Title>Dados do Movie db</Title>}
             refreshControl={<RefreshControl {...propsRefreshControl}/>}
             renderItem={({ item: movie, index }: ListRenderItemInfo<IMovie>) => (
