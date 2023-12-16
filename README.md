@@ -30,6 +30,6 @@ Testando animações no React Native
 ![Vídeo AnimatedHomePageOfImages](https://user-images.githubusercontent.com/65141147/209978400-bbb4dbce-ee25-42f2-b423-484aa88f27ff.gif)
 
 ## APIS
-- [Unplash](https://unsplash.com/developers)
+- [Unsplash](https://unsplash.com/developers)
 - [Movie DB](https://www.themoviedb.org/documentation/api)
 - [TabNews](https://www.tabnews.com.br/filipedeschamps/tentando-construir-um-pedaco-de-internet-mais-massa)

@@ -2,6 +2,7 @@ import useImages from './useImages'
 import usePropsRefreshControl from '../../hooks/usePropsRefreshControl'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
+import page from './page'
 import { Images, ContainerColumns, ColumnImages} from './style'
 import { RefreshControl } from 'react-native'
 import ImageAnimated from './ImageAnimated'
@@ -13,7 +14,7 @@ function AnimatedHomePageOfImages() {
 
     return (
         <ContainerPd>
-            <HeaderBack>Página inicial animada de imagens</HeaderBack>
+            <HeaderBack page={page}>Página inicial animada de imagens</HeaderBack>
             {(imagesRow1.length > 0 || imagesRow2.length > 0) ? (
                 <Images refreshControl={<RefreshControl {...propsRefreshControl}/>} contentContainerStyle={{paddingBottom: '40%'}}>
                     <ContainerColumns>
