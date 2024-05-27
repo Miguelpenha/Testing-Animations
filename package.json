@@ -6,7 +6,9 @@
   "scripts": {
     "start": "expo start",
     "postinstall": "patch-package",
-    "build": "eas build --profile production --platform android"
+    "build": "eas build --profile production --platform android",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
@@ -41,7 +43,8 @@
     "react-native-uuid": "^2.0.2",
     "react-native-web": "^0.19.11",
     "styled-components": "^5.3.6",
-    "unsplash-js": "^7.0.19"
+    "unsplash-js": "^7.0.19",
+    "expo-dev-client": "~4.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
